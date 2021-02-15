@@ -1,0 +1,17 @@
+﻿  Assignment2.cpp
+C:\Users\chevy\Desktop\Submission\Application\Source\Assignment2.cpp(49,21): warning C4552: '-': result of expression not used
+C:\Users\chevy\Desktop\Submission\Application\Source\Assignment2.cpp(741,20): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\chevy\Desktop\Submission\Application\Source\Assignment2.cpp(758,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\chevy\Desktop\Submission\Application\Source\Assignment2.cpp(761,26): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\chevy\Desktop\Submission\Application\Source\Assignment2.cpp(767,26): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\chevy\Desktop\Submission\Application\Source\Assignment2.cpp(806,26): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\chevy\Desktop\Submission\Application\Source\Assignment2.cpp(822,26): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\chevy\Desktop\Submission\Application\Source\Assignment2.cpp(864,26): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\chevy\Desktop\Submission\Application\Source\Assignment2.cpp(1016,30): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\chevy\Desktop\Submission\Application\Source\Assignment2.cpp(1017,21): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\chevy\Desktop\Submission\Application\Source\Assignment2.cpp(2572,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\chevy\Desktop\Submission\Application\Source\Assignment2.cpp(3101,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\chevy\Desktop\Submission\Application\Source\Assignment2.cpp(3101,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\chevy\Desktop\Submission\Application\Source\Assignment2.cpp(3102,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\chevy\Desktop\Submission\Application\Source\Assignment2.cpp(3102,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Application.vcxproj -> C:\Users\chevy\Desktop\Submission\Debug\Application.exe

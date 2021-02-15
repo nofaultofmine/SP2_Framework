@@ -1,0 +1,9 @@
+newmtl objMesh Merged Material
+Ka 0.000000 0.000000 0.000000
+Kd 0.858824 0.580392 0.215686
+Ks 0.694588 0.677647 0.621176
+Ns 25.634233
+d 1.000000
+Tr 0.000000
+map_Kd objMesh Merged Diffuse Texture.TGA 
+
