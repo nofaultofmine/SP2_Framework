@@ -22,7 +22,7 @@ public:
 
 
 private:
-
+	// TestYX
 	//Declare a window object
 	StopWatch m_timer;
 };
