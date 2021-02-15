@@ -9,7 +9,7 @@
 #include "LoadOBJ.h"
 #include <string>
 
-
+//hi XinJie
 Assignment2::Assignment2()
 {
 }
