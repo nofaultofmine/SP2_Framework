@@ -90,6 +90,16 @@ void Camera3::Update(double dt)
         position -= view * ZOOM_SPEED * static_cast<float>(dt);
         target = position + view;
     }*/
+    /*if (Application::IsKeyPressed('E'))
+    {
+        position += rightDir.y * dt * 50;
+        target += rightDir.y * dt * 50;
+    }
+    if (Application::IsKeyPressed('Q'))
+    {
+        position -= rightDir.y * dt * 50;
+        target -= rightDir.y * dt * 50;
+    }*/
     if (Application::IsKeyPressed('A'))
     {
         /*Vector3 right = view.Cross(up).Normalized();

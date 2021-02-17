@@ -1,11 +1,12 @@
 ﻿  SceneYX.cpp
-C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\SceneYX.cpp(547,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\SceneYX.cpp(547,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\SceneYX.cpp(548,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\SceneYX.cpp(548,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\SceneYX.cpp(379,30): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\SceneYX.cpp(561,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\SceneYX.cpp(561,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\SceneYX.cpp(562,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\SceneYX.cpp(562,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating code
-  2 of 512 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+  1 of 910 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    3 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Application.vcxproj -> C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Release\Application.exe

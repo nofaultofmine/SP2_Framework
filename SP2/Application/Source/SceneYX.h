@@ -29,6 +29,10 @@ class SceneTaxi : public Scene
 		GEO_BACK,
 		GEO_TORUS,
 
+		// Hover Taxi
+		GEO_TAXI,
+		GEO_HOVERPAD,
+
 		GEO_TEXT,
 		GEO_TEXT1,
 		GEO_TEXT2,

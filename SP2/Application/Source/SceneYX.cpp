@@ -34,11 +34,11 @@ void SceneTaxi::Init()
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	camera.Init(Vector3(-240, 10, -240), Vector3(0, 10, -240), Vector3(0, 1, 0));
+	camera.Init(Vector3(4, 5, 4), Vector3(0, 0, 0), Vector3(0, 1, 0));
 
 
 	// Animation Parameters
-	
+
 
 	Mtx44 projection;
 	projection.SetToPerspective(45.f, 4.f / 3.f, 0.1f, 1000.f);
@@ -51,11 +51,11 @@ void SceneTaxi::Init()
 	//Mesh::SetMaterialLoc(m_parameters[U_MATERIAL_AMBIENT], m_parameters[U_MATERIAL_DIFFUSE], m_parameters[U_MATERIAL_SPECULAR], m_parameters[U_MATERIAL_SHININESS]);
 	meshList[GEO_FLOOR] = MeshBuilder::GenerateQuad("Floor", Color(1, 1, 1), 1.f);
 	meshList[GEO_FLOOR]->textureID = LoadTGA("Image//bottom1.tga");
-	
+
 	meshList[GEO_QUAD] = MeshBuilder::GenerateQuad("textBox", Color(1, 1, 1), 1.f);
 	meshList[GEO_QUAD]->textureID = LoadTGA("Image//textBox.tga");
 
-	meshList[GEO_LIGHTBALL] = MeshBuilder::GenerateSphere("sphere", Color(1,1,1), 18, 18, 1.0f);
+	meshList[GEO_LIGHTBALL] = MeshBuilder::GenerateSphere("sphere", Color(1, 1, 1), 18, 18, 1.0f);
 
 	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1500, 1500, 1500);
 
@@ -77,6 +77,14 @@ void SceneTaxi::Init()
 
 	meshList[GEO_RIGHT] = MeshBuilder::GenerateQuad("right", Color(1, 1, 1), 1.f);
 	meshList[GEO_RIGHT]->textureID = LoadTGA("Image//clouds1_negx.tga");
+
+	// Hover Taxi
+	meshList[GEO_TAXI] = MeshBuilder::GenerateOBJMTL("Taxi Model", "OBJ//taxi.obj", "OBJ//taxi.mtl");
+	meshList[GEO_HOVERPAD] = MeshBuilder::GenerateCube("Hover", Color(0.25, 0.25, 0.25), 1.f);
+	meshList[GEO_HOVERPAD]->material.kAmbient.Set(0.5f, 0.5f, 0.5f);
+	meshList[GEO_HOVERPAD]->material.kDiffuse.Set(1.0f, 1.0f, 1.0f);
+	meshList[GEO_HOVERPAD]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
+	meshList[GEO_HOVERPAD]->material.kShininess = 1.f;
 
 	//Load vertex and fragment shaders
 
@@ -364,6 +372,12 @@ void SceneTaxi::Render()
 	RenderMesh(meshList[GEO_AXES], false);
 	RenderSkybox();
 
+	modelStack.PushMatrix();
+	RenderMesh(meshList[GEO_TAXI], true);
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0.25, 0);
+	modelStack.Scale(1, 0.5, 1.8);
+	RenderMesh(meshList[GEO_HOVERPAD], true);
 }
 
 void SceneTaxi::Exit()
