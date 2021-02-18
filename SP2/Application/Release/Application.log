@@ -1,14 +1,13 @@
-﻿  SceneMH.cpp
-C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(49,21): warning C4552: '-': result of expression not used
-C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(419,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(419,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(608,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(608,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(609,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(609,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  Application.cpp
+  SceneXJ.cpp
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(49,21): warning C4552: '-': result of expression not used
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(629,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(629,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(630,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(630,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating code
-  1 of 916 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    3 functions had inline decision re-evaluated but remain unchanged
+  688 of 944 functions (72.9%) were compiled, the rest were copied from previous compilation.
+    2 functions were new in current compilation
+    49 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  Application.vcxproj -> C:\Users\hafiz\Documents\SP2_Framework\SP2\Release\Application.exe
+  Application.vcxproj -> C:\Users\65861\source\repos\SP2_Framework_4\SP2\Release\Application.exe

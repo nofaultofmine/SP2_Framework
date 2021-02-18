@@ -14,6 +14,7 @@
 #include "Assignment2.h"
 #include "SceneYX.h"
 #include "SceneMH.h"
+#include "SceneXJ.h"
 
 GLFWwindow* m_window;
 const unsigned char FPS = 60; // FPS of this game
@@ -110,23 +111,23 @@ void Application::Init()
 void Application::Run()
 {
 	//Main Loop
-	Scene *scene = new SceneMH();
-	//Scene* scene1 = new SceneUI();
-	//Scene* scene2 = new Assignment2();
+	Scene *scene = new SceneXJ();
+	Scene* scene1 = new SceneMH();
+	Scene* scene2 = new Assignment2();
 	//Scene* scene = scene1;
 	scene->Init();
-	//scene1->Init();
-	//scene2->Init();
+	scene1->Init();
+	scene2->Init();
 
 	m_timer.startTimer();    // Start timer to calculate how long it takes to render this frame
 	while (!glfwWindowShouldClose(m_window) && !IsKeyPressed(VK_ESCAPE))
 	{
-		/*
+		
 		if (IsKeyPressed(VK_F1))
 			scene = scene1;
 		else if (IsKeyPressed(VK_F2))
 			scene = scene2;
-		*/
+		
 		scene->Update(m_timer.getElapsedTime());
 		scene->Render();
 		//Swap buffers
