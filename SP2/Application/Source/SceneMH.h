@@ -29,6 +29,8 @@ class SceneMH : public Scene
 		//Other Models
 		GEO_TABLE,
 		GEO_CHAIR,
+		GEO_BUILDING,
+		GEO_STALL,
 		GEO_TILE,
 		GEO_TEXT,
 		GEO_TEXT1,
@@ -207,6 +209,7 @@ public:
 	virtual void Exit();
 
 	void RenderTableSet(float x, float y, float z);
+	void RenderStallSet(float x, float y, float z, std::string text);
 };
 
 #endif

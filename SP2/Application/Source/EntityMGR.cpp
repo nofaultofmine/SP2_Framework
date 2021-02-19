@@ -7,8 +7,9 @@ EntityMGR::EntityMGR() {
 };
 EntityMGR::~EntityMGR() {};
 
-void EntityMGR::Init() {
-	
+void EntityMGR::Init(Vector3 pos, Vector3 target, Vector3 up, float radius) { //inits the same way as a camera but includes a radius for hitboxing
+	PlayerEntity = new Player(pos, target, up, radius);
+	registerEntity(PlayerEntity); //registers the entity in the list.
 }
 
 void EntityMGR::CreatePoint(std::string name, Vector3 pos) {
@@ -36,6 +37,8 @@ void EntityMGR::registerEntity(Entity* entity) {
 
 void EntityMGR::Update(double dt) {
 	UpdateALLHitboxes();
+	PlayerEntity->Update(dt);
+	ACAR(PlayerEntity, 5, entityList);
 }
 
 bool EntityMGR::isCollided(Entity* entity1, Entity* entity2) {
@@ -57,9 +60,8 @@ void EntityMGR::checkNearby(Entity* entity, float range, std::vector<Entity*> li
 	float lengthchecker = 0;
 	for (int i = 0; i < list.size(); i++) {
 		lengthchecker = sqrt((entity->pos.x - list[i]->pos.x) * (entity->pos.x - list[i]->pos.x) + (entity->pos.z - list[i]->pos.z) * (entity->pos.z - list[i]->pos.z));
-		if (lengthchecker < range) {
+		if (lengthchecker < range && list[i]->name != entity->name) {
 			nearbyList.push_back(list[i]);
-			
 		}
 	}
 }
@@ -87,3 +89,19 @@ void EntityMGR::UpdateALLHitboxes() {
 		UpdateHitbox(entityList[i]);
 	}
 }
+
+void EntityMGR::ACAR(Entity* entity, float range, std::vector<Entity*> list) { //acronym for Area Collision and Reaction.
+	checkNearby(entity, range, list);
+	for (int i = 0; nearbyList.size(); i++) {
+		if (isCollided(entity, nearbyList[i])) {
+			if (nearbyList[i]->name == " ") {//fill this part with your interactions if they are based on collisions.
+				//do something
+			}
+			if (entity == this->PlayerEntity) {
+				this->PlayerEntity->returnToTemp();
+			}
+		}
+	}
+}
+
+void EntityMGR::Interactions() {};

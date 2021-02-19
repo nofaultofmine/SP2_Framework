@@ -34,63 +34,7 @@ void SceneMH::Init()
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	camera.Init(Vector3(-240, 10, -240), Vector3(0, 10, -240), Vector3(0, 1, 0));
-
-
-	// Animation Parameters
-	LSPEED = 10.0f;
-	rotateAngle = 0.0f;
-	bodyRotateAngle = 0.0f;
-	bodyRotateAngle2 = 0.0f;
-	bodyRotateAngle3 = 0.0f;
-	headRotateAngle = 0.0f;
-	armRotateAngle = -60.0f;
-	armRotateAngle2 = 0.0f;
-	armIdleRotateAngle -50.0f;
-	swordRotateAngle = 0.0f;
-	swordRotateAngle2 = 0.0f;
-	translateX = 0.0f;
-	translateY = 0.0f;
-	translateZ = -100.0f;
-	masterSwordY = -8.0f;
-	bombX = 0.0f;
-	bombY = 0.0f;
-
-	scaleAll = 0.2f;
-	eyeScale = 0.2f;
-	rotateSpeed = 360.0f;
-	bodyRotateSpeed = 24.0f;
-	bodyRotateSpeed2 = 90.0f;
-	headRotateSpeed = 15.0f;
-	armRotateSpeed = 60.0f;
-	armRotateSpeed2 = 10.0f;
-	armIdleRotateSpeed = 60.0f;
-	swordRotateSpeed = 0.0f;
-	swordRotateSpeed2 = 0.0f;
-	translateSpeed = 1.6f;
-	scaleSpeed = 1.0f;
-	eyeScaleSpeed = 1.0f;
-	blinkTimer = 0.0f;
-	swordFlashTimer = 0.5f;
-	bombTimer = 0.5f;
-	bombGravity = 5.0f;
-
-	eyesClosed = false;
-	chest1Opened = false;
-	canInteract = false;
-	setBombInActive = false;
-	instructionTextBoxOn = true;
-	bombFlash = false;
-	swordSequence1 = false;
-	swordSequence2 = false;
-
-	throwSequence1 = false;
-	throwSequence2 = false;
-	throwSequence3 = false;
-
-	anim1Playing = false;
-	anim2Playing = false;
-	anim3Playing = false;
+	camera.Init(Vector3(-10, 10, 0), Vector3(0, 10, -0), Vector3(0, 1, 0));
 
 	Mtx44 projection;
 	projection.SetToPerspective(45.f, 4.f / 3.f, 0.1f, 1000.f);
@@ -110,6 +54,10 @@ void SceneMH::Init()
 	meshList[GEO_TABLE] = MeshBuilder::GenerateOBJMTL("Table", "OBJ//table.obj", "OBJ//table.mtl");
 
 	meshList[GEO_CHAIR] = MeshBuilder::GenerateOBJMTL("Chair", "OBJ//kopichair.obj", "OBJ//kopichair.mtl");
+
+	meshList[GEO_BUILDING] = MeshBuilder::GenerateOBJMTL("Building", "OBJ//kopitiam.obj", "OBJ//kopitiam.mtl");
+
+	meshList[GEO_STALL] = MeshBuilder::GenerateOBJMTL("Stall", "OBJ//foodstall.obj", "OBJ//foodstall.mtl");
 	//Skybox
 	meshList[GEO_FRONT] = MeshBuilder::GenerateQuad("front", Color(1, 1, 1), 1.f);
 	meshList[GEO_FRONT]->textureID = LoadTGA("Image//front.tga");
@@ -407,19 +355,20 @@ void SceneMH::Render()
 	RenderSkybox();
 
 	modelStack.PushMatrix();
-	modelStack.Translate(0, -6, -235);
+	modelStack.Translate(0, -6, 0);
 	modelStack.Scale(600, 200, 200);
 	modelStack.Rotate(-90, 0, 1, 0);
 	modelStack.Rotate(90, 1, 0, 0);
 	RenderMesh(meshList[GEO_FLOOR], false);
 	modelStack.PopMatrix();
 
-	for (int x = 0; x < 3; x++) {
-		for (int z = 0; z < 3; z++) {
-			RenderTableSet(x * 40, 0, z * 40);
-			
+	for (int x = 0; x < 1; x++) {
+		for (int z = 0; z < 1; z++) {
+			RenderTableSet(40 * x, 0, 40 * z);
 		}
 	}
+	
+	RenderStallSet(0, 0, 0, "SOUP");
 
 	if(Application::IsKeyPressed('E'))
 		RenderTextOnScreen(meshList[GEO_TEXT], "", Color(0, 1, 0), 4, 0, 0);
@@ -647,10 +596,28 @@ void SceneMH::RenderTableSet(float x, float y, float z) {
 		modelStack.Scale(4, 4, 4);
 		RenderMesh(meshList[GEO_CHAIR], true);
 		modelStack.PopMatrix();
+		//modelStack.PushMatrix();
+		//modelStack.Translate(0, -6, 0);
+		//modelStack.Scale(20, 20, 20);
+		//RenderMesh(meshList[GEO_TILE], true);
+		//modelStack.PopMatrix();
+	modelStack.PopMatrix();
+}
+
+void SceneMH::RenderStallSet(float x, float y, float z, std::string text) {
+	modelStack.PushMatrix();
+	modelStack.Translate(x, y, z);
 		modelStack.PushMatrix();
-		modelStack.Translate(0, -6, 0);
-		modelStack.Scale(20, 20, 20);
-		RenderMesh(meshList[GEO_TILE], true);
+		modelStack.Translate(0, 6, -65);
+		modelStack.Rotate(-90, 0, 1, 0);
+		modelStack.Scale(12, 12, 12);
+		RenderMesh(meshList[GEO_STALL], true);
+		modelStack.PopMatrix();
+		
+		modelStack.PushMatrix();
+		modelStack.Translate(-13, 10, -53);
+		modelStack.Scale(3, 3, 3);
+		RenderText(meshList[GEO_TEXT], text, Color(1, 1, 1));
 		modelStack.PopMatrix();
 	modelStack.PopMatrix();
 }

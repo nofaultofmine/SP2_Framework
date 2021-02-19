@@ -12,11 +12,5 @@ struct Entity {
 
 	bool isPoint;
 	bool isMoving = false;
-	bool isUp = false;
 	bool isCollided = false;
-	
-	float angle;
-	float Ay = 0; //acceleration along the y axis.
-	float Ny = 0; //force along the y axis.
-	float kg = 1; //weight of object.
 };

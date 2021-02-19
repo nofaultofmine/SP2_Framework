@@ -157,6 +157,8 @@
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Mesh.cpp" />
     <ClCompile Include="Source\MeshBuilder.cpp" />
+    <ClCompile Include="Source\Player.cpp" />
+    <ClCompile Include="Source\SceneEntityMGRTemplate.cpp" />
     <ClCompile Include="Source\SceneMH.cpp" />
     <ClCompile Include="Source\SceneXJ.cpp" />
     <ClCompile Include="Source\SceneYX.cpp" />
@@ -178,7 +180,9 @@
     <ClInclude Include="Source\Material.h" />
     <ClInclude Include="Source\Mesh.h" />
     <ClInclude Include="Source\MeshBuilder.h" />
+    <ClInclude Include="Source\Player.h" />
     <ClInclude Include="Source\Scene.h" />
+    <ClInclude Include="Source\SceneEntityMGRTemplate.h" />
     <ClInclude Include="Source\SceneMH.h" />
     <ClInclude Include="Source\SceneXJ.h" />
     <ClInclude Include="Source\SceneYX.h" />
