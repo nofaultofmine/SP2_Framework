@@ -1,13 +1,20 @@
-﻿  SceneMH.cpp
-C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(367,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(367,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(557,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(557,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(558,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(558,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  Application.cpp
+  EntityMGR.cpp
+C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\EntityMGR.cpp(57,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\EntityMGR.cpp(68,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\EntityMGR.cpp(81,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\EntityMGR.cpp(86,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\EntityMGR.cpp(94,19): warning C4018: '<': signed/unsigned mismatch
+  SceneMH.cpp
+C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(378,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(378,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(568,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(568,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(569,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\hafiz\Documents\SP2_Framework\SP2\Application\Source\SceneMH.cpp(569,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating code
-  1 of 947 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+  34 of 1040 functions ( 3.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    7 functions had inline decision re-evaluated but remain unchanged
+    20 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Application.vcxproj -> C:\Users\hafiz\Documents\SP2_Framework\SP2\Release\Application.exe

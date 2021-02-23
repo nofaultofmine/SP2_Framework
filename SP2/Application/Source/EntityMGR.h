@@ -1,7 +1,6 @@
 #pragma once
 #include "Entity.h"
 #include "CollisionHandler.h"
-#include "Player.h"
 #include <vector>
 #include <cstdlib>
 #include <ctime>
@@ -13,19 +12,17 @@ public:
 	Entity* temp;
 	Entity* cardTemp;
 	Entity under;
-
-	Player* PlayerEntity;
-
 	std::vector<Entity*> entityList;
 	std::vector<Entity*> nearbyList;
 	std::vector<Entity*> emptyList;
 
+	int interactionstate = 0;
+
 	EntityMGR();
 	~EntityMGR();
-	virtual void Init(Vector3 pos, Vector3 target, Vector3 up, float radius);
+	virtual void Init();
 	virtual void Update(double dt);
-	virtual void ACAR(Entity* entity, float range, std::vector<Entity*> list);
-	virtual void Interactions();
+	std::string ACAR(Entity* entity, float range, std::vector<Entity*> list);
 
 	void CreatePoint(std::string name, Vector3 pos);
 	void CreateAABB(std::string name, Vector3 pos, Vector3 hMin, Vector3 hMax);

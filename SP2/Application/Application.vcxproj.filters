@@ -66,9 +66,6 @@
     <ClCompile Include="Source\EntityMGR.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\SceneEntityMGRTemplate.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -136,9 +133,6 @@
     </ClInclude>
     <ClInclude Include="Source\CollisionHandler.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\SceneEntityMGRTemplate.h">
-      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Player.h">
       <Filter>Header Files</Filter>

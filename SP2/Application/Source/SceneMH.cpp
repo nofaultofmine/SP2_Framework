@@ -34,7 +34,7 @@ void SceneMH::Init()
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	camera.Init(Vector3(-10, 10, 0), Vector3(0, 10, -0), Vector3(0, 1, 0));
+	PlayerEntity = new Player(Vector3(-10, 10, 0), Vector3(0, 10, -0), Vector3(0, 1, 0), 3);
 
 	Mtx44 projection;
 	projection.SetToPerspective(45.f, 4.f / 3.f, 0.1f, 1000.f);
@@ -58,6 +58,8 @@ void SceneMH::Init()
 	meshList[GEO_BUILDING] = MeshBuilder::GenerateOBJMTL("Building", "OBJ//kopitiam.obj", "OBJ//kopitiam.mtl");
 
 	meshList[GEO_STALL] = MeshBuilder::GenerateOBJMTL("Stall", "OBJ//foodstall.obj", "OBJ//foodstall.mtl");
+	EnMGR.CreateAABB("Stall1", Vector3(0, 6, -65), Vector3(-24, -6, -20), Vector3(24, 20, 20));
+	
 	//Skybox
 	meshList[GEO_FRONT] = MeshBuilder::GenerateQuad("front", Color(1, 1, 1), 1.f);
 	meshList[GEO_FRONT]->textureID = LoadTGA("Image//front.tga");
@@ -88,6 +90,8 @@ void SceneMH::Init()
 
 	meshList[GEO_TILE] = MeshBuilder::GenerateOBJMTL("tile", "OBJ//tile.obj", "OBJ//tile.mtl");
 
+	meshList[GEO_MONEY] = MeshBuilder::GenerateOBJMTL("Money!", "OBJ//money.obj", "OBJ//money.mtl");
+		
 	meshList[GEO_LIGHTBALL] = MeshBuilder::GenerateSphere("sphere", Color(1,1,1), 18, 18, 1.0f);
 
 	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1500, 1500, 1500);
@@ -167,7 +171,7 @@ void SceneMH::Init()
 	light[0].spotDirection.Set(0.f, 1.f, 0.f);
 
 	light[1].type = Light::LIGHT_POINT;
-	light[1].position.Set(camera.position.x, 10, camera.position.z);
+	light[1].position.Set(PlayerEntity->FPSCam->position.x, 10, PlayerEntity->FPSCam->position.z);
 	light[1].color.Set(1, 1, 1);
 	light[1].power = 2.0f;
 	light[1].kC = 1.f;
@@ -236,8 +240,28 @@ void SceneMH::Reset()
 
 void SceneMH::Update(double dt)
 {
-	camera.Update(dt);
-
+	switch (currEvent) {
+	case 1:
+		EventLength += dt;
+		if (EventLength > 5) {
+			currEvent = 0;
+			EventLength = 0;
+		}
+		else if(Application::IsKeyPressed('F')){
+			currEvent = 2;
+		}
+	}
+	std::string temp = EnMGR.ACAR(PlayerEntity, 100, EnMGR.entityList);
+	PlayerEntity->Update(dt);
+	EnMGR.UpdateHitbox(PlayerEntity);
+	EnMGR.Update(dt);
+	if (temp != " ") {
+		PlayerEntity->returnToTemp();
+		if (temp == "Stall1") {
+			currEvent = 1;
+		}
+	}
+	std::cout << "playerentitypos :" << PlayerEntity->pos << "campos" << PlayerEntity->FPSCam->position << std::endl;
 	if (Application::IsKeyPressed(0x31))
 	{
 		glEnable(GL_CULL_FACE);
@@ -348,7 +372,7 @@ void SceneMH::Render()
 	}
 
 	viewStack.LoadIdentity();
-	viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
+	viewStack.LookAt(PlayerEntity->FPSCam->position.x, PlayerEntity->FPSCam->position.y, PlayerEntity->FPSCam->position.z, PlayerEntity->FPSCam->target.x, PlayerEntity->FPSCam->target.y, PlayerEntity->FPSCam->target.z, PlayerEntity->FPSCam->up.x, PlayerEntity->FPSCam->up.y, PlayerEntity->FPSCam->up.z);
 	modelStack.LoadIdentity();
 
 	//RenderMesh(meshList[GEO_AXES], false);

@@ -9,6 +9,8 @@
 #include "Mesh.h"
 #include "MatrixStack.h"
 #include "Light.h"
+#include "EntityMGR.h"
+#include "Player.h"
 
 class SceneMH : public Scene
 {
@@ -35,6 +37,7 @@ class SceneMH : public Scene
 		GEO_TEXT,
 		GEO_TEXT1,
 		GEO_TEXT2,
+		GEO_MONEY,
 		NUM_GEOMETRY,
 	};
 
@@ -103,85 +106,14 @@ private:
 
 	Light light[3];
 
-	float rotateAngle;
-	float bodyRotateAngle;
-	float bodyRotateAngle2;
-	float bodyRotateAngle3;
-	float headRotateAngle;
-	float swordRotateAngle;
-	float swordRotateAngle2;
-	float armRotateAngle;
-	float armRotateAngle2;
-	float armIdleRotateAngle;
-	float bombX;
-	float bombY;
-	float bombZ;
-	//Link Position Parameters
-	float translateX;
-	float translateY;
-	float translateZ;
-	float scaleAll;
-	float eyeScale;
-	float LSPEED;
-
-	float swordFlashTimer;
-	float blinkTimer;
-	float bombTimer;
-	float rotateSpeed;
-	float bodyRotateSpeed;
-	float bodyRotateSpeed2;
-	float headRotateSpeed;
-	float armRotateSpeed;
-	float armRotateSpeed2;
-	float armIdleRotateSpeed;
-	float swordRotateSpeed;
-	float swordRotateSpeed2;
-	float translateSpeed;
-	float scaleSpeed;
-	float eyeScaleSpeed;
-	float bombGravity;
-
-	//Assignment 1 Booleans
-	bool eyesClosed;
-	bool bombFlash;
-	bool swordSequence1;
-	bool swordSequence2;
-	bool throwSequence1;
-	bool throwSequence2;
-	bool throwSequence3;
-	bool anim1Playing;
-	bool anim2Playing;
-	bool anim3Playing;
-
-	//Assignment2 Booleans
-	bool fpsCamera;
-	bool chest1Opened;
-	bool canInteract;
-	bool gotBombs;
-	bool setBombInActive;
-	bool caveEntranceBroken;
-	bool cutSceneOn;
-	bool reachedDekuTree;
-	bool masterSwordGet;
-	bool darkLinkDefeated;
-	bool canClick;
-	bool instructionTextBoxOn;
-	bool insideCave;
-	bool atCaveEntrance;
-
-	//Assignment2 Values
-	float textTimer;
-	float lilyRotateAngle;
-	float masterSwordY;
-	float darkLinkY;
-	int dialogueNumber;
-	int goalNumber;
-
 	//float FPS;
 
-	Camera3 camera;
-	Camera2 camera2;
+	EntityMGR EnMGR;
+	Player* PlayerEntity;
 	//Camera3 camera2;
+
+	int currEvent = 0;
+	float EventLength = 0;
 
 	unsigned m_parameters[U_TOTAL];
 	unsigned m_vertexArrayID;

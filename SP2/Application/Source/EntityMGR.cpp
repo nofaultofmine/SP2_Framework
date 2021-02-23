@@ -7,9 +7,7 @@ EntityMGR::EntityMGR() {
 };
 EntityMGR::~EntityMGR() {};
 
-void EntityMGR::Init(Vector3 pos, Vector3 target, Vector3 up, float radius) { //inits the same way as a camera but includes a radius for hitboxing
-	PlayerEntity = new Player(pos, target, up, radius);
-	registerEntity(PlayerEntity); //registers the entity in the list.
+void EntityMGR::Init() {
 }
 
 void EntityMGR::CreatePoint(std::string name, Vector3 pos) {
@@ -37,8 +35,6 @@ void EntityMGR::registerEntity(Entity* entity) {
 
 void EntityMGR::Update(double dt) {
 	UpdateALLHitboxes();
-	PlayerEntity->Update(dt);
-	ACAR(PlayerEntity, 5, entityList);
 }
 
 bool EntityMGR::isCollided(Entity* entity1, Entity* entity2) {
@@ -62,6 +58,8 @@ void EntityMGR::checkNearby(Entity* entity, float range, std::vector<Entity*> li
 		lengthchecker = sqrt((entity->pos.x - list[i]->pos.x) * (entity->pos.x - list[i]->pos.x) + (entity->pos.z - list[i]->pos.z) * (entity->pos.z - list[i]->pos.z));
 		if (lengthchecker < range && list[i]->name != entity->name) {
 			nearbyList.push_back(list[i]);
+			std::cout << list[i]->name << "is nearby!" << std::endl;
+			std::cout << list[i]->uHitbox[0] << list[i]->uHitbox[1] << std::endl;
 		}
 	}
 }
@@ -90,18 +88,14 @@ void EntityMGR::UpdateALLHitboxes() {
 	}
 }
 
-void EntityMGR::ACAR(Entity* entity, float range, std::vector<Entity*> list) { //acronym for Area Collision and Reaction.
+std::string EntityMGR::ACAR(Entity* entity, float range, std::vector<Entity*> list) { //acronym for Area Collision and Reaction.
+	std::string Creturn = " ";
 	checkNearby(entity, range, list);
-	for (int i = 0; nearbyList.size(); i++) {
+	for (int i = 0;i < nearbyList.size(); i++) {
 		if (isCollided(entity, nearbyList[i])) {
-			if (nearbyList[i]->name == " ") {//fill this part with your interactions if they are based on collisions.
-				//do something
-			}
-			if (entity == this->PlayerEntity) {
-				this->PlayerEntity->returnToTemp();
-			}
+			Creturn = nearbyList[i]->name;
 		}
 	}
+	std::cout << Creturn << std::endl;
+	return Creturn;
 }
-
-void EntityMGR::Interactions() {};
