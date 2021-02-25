@@ -1,11 +1,81 @@
-﻿  SceneXJ.cpp
+﻿  Application.cpp
+  Assignment2.cpp
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Assignment2.cpp(49,21): warning C4552: '-': result of expression not used
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Assignment2.cpp(741,20): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Assignment2.cpp(758,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Assignment2.cpp(761,26): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Assignment2.cpp(767,26): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Assignment2.cpp(806,26): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Assignment2.cpp(822,26): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Assignment2.cpp(864,26): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Assignment2.cpp(1016,30): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Assignment2.cpp(1017,21): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Assignment2.cpp(2572,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Assignment2.cpp(3101,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Assignment2.cpp(3101,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Assignment2.cpp(3102,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Assignment2.cpp(3102,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Camera.cpp
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Camera.cpp(72,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Camera.cpp(78,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Camera.cpp(84,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Camera.cpp(91,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Camera.cpp(97,22): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Camera.cpp(101,22): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Camera2.cpp
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Camera2.cpp(74,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Camera2.cpp(80,35): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Camera3.cpp
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Camera3.cpp(100,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Camera3.cpp(101,30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Camera3.cpp(110,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Camera3.cpp(111,30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Camera3.cpp(120,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Camera3.cpp(121,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Camera3.cpp(130,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\Camera3.cpp(131,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  CollisionHandler.cpp
+  EntityMGR.cpp
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\EntityMGR.cpp(57,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\EntityMGR.cpp(68,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\EntityMGR.cpp(81,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\EntityMGR.cpp(86,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\EntityMGR.cpp(94,19): warning C4018: '<': signed/unsigned mismatch
+  LoadOBJ.cpp
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\LoadOBJ.cpp(33,24): warning C4473: 'sscanf_s' : not enough arguments passed for format string
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\LoadOBJ.cpp(33,24): message : placeholders and their parameters expect 3 variadic arguments, but 2 were provided
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\LoadOBJ.cpp(33,24): message : the missing variadic argument 3 is required by format string '%f'
+  LoadTGA.cpp
+  main.cpp
+  Mesh.cpp
+  MeshBuilder.cpp
+  Player.cpp
+  SceneMH.cpp
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneMH.cpp(245,20): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneMH.cpp(391,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneMH.cpp(391,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneMH.cpp(581,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneMH.cpp(581,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneMH.cpp(582,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneMH.cpp(582,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  SceneXJ.cpp
 C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(372,29): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
 C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(394,19): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
 C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(402,29): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(684,86): error C2664: 'void SceneXJ::RenderTextOnScreen(Mesh *,std::string,Color,float,float,float)': cannot convert argument 2 from 'float' to 'std::string'
-C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(684,86): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.h(220,7): message : see declaration of 'SceneXJ::RenderTextOnScreen'
 C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(861,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(861,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(862,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(862,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  SceneYX.cpp
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneYX.cpp(547,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneYX.cpp(547,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneYX.cpp(548,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneYX.cpp(548,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  shader.cpp
+  Utility.cpp
+  Generating code
+  162 of 1041 functions (15.6%) were compiled, the rest were copied from previous compilation.
+    93 functions were new in current compilation
+    151 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Application.vcxproj -> C:\Users\65861\source\repos\SP2_Framework_4\SP2\Release\Application.exe

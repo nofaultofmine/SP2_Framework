@@ -34,63 +34,7 @@ void SceneMH::Init()
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	camera.Init(Vector3(-240, 10, -240), Vector3(0, 10, -240), Vector3(0, 1, 0));
-
-
-	// Animation Parameters
-	LSPEED = 10.0f;
-	rotateAngle = 0.0f;
-	bodyRotateAngle = 0.0f;
-	bodyRotateAngle2 = 0.0f;
-	bodyRotateAngle3 = 0.0f;
-	headRotateAngle = 0.0f;
-	armRotateAngle = -60.0f;
-	armRotateAngle2 = 0.0f;
-	armIdleRotateAngle -50.0f;
-	swordRotateAngle = 0.0f;
-	swordRotateAngle2 = 0.0f;
-	translateX = 0.0f;
-	translateY = 0.0f;
-	translateZ = -100.0f;
-	masterSwordY = -8.0f;
-	bombX = 0.0f;
-	bombY = 0.0f;
-
-	scaleAll = 0.2f;
-	eyeScale = 0.2f;
-	rotateSpeed = 360.0f;
-	bodyRotateSpeed = 24.0f;
-	bodyRotateSpeed2 = 90.0f;
-	headRotateSpeed = 15.0f;
-	armRotateSpeed = 60.0f;
-	armRotateSpeed2 = 10.0f;
-	armIdleRotateSpeed = 60.0f;
-	swordRotateSpeed = 0.0f;
-	swordRotateSpeed2 = 0.0f;
-	translateSpeed = 1.6f;
-	scaleSpeed = 1.0f;
-	eyeScaleSpeed = 1.0f;
-	blinkTimer = 0.0f;
-	swordFlashTimer = 0.5f;
-	bombTimer = 0.5f;
-	bombGravity = 5.0f;
-
-	eyesClosed = false;
-	chest1Opened = false;
-	canInteract = false;
-	setBombInActive = false;
-	instructionTextBoxOn = true;
-	bombFlash = false;
-	swordSequence1 = false;
-	swordSequence2 = false;
-
-	throwSequence1 = false;
-	throwSequence2 = false;
-	throwSequence3 = false;
-
-	anim1Playing = false;
-	anim2Playing = false;
-	anim3Playing = false;
+	PlayerEntity = new Player(Vector3(-10, 10, 0), Vector3(0, 10, -0), Vector3(0, 1, 0), 3);
 
 	Mtx44 projection;
 	projection.SetToPerspective(45.f, 4.f / 3.f, 0.1f, 1000.f);
@@ -110,6 +54,12 @@ void SceneMH::Init()
 	meshList[GEO_TABLE] = MeshBuilder::GenerateOBJMTL("Table", "OBJ//table.obj", "OBJ//table.mtl");
 
 	meshList[GEO_CHAIR] = MeshBuilder::GenerateOBJMTL("Chair", "OBJ//kopichair.obj", "OBJ//kopichair.mtl");
+
+	meshList[GEO_BUILDING] = MeshBuilder::GenerateOBJMTL("Building", "OBJ//kopitiam.obj", "OBJ//kopitiam.mtl");
+
+	meshList[GEO_STALL] = MeshBuilder::GenerateOBJMTL("Stall", "OBJ//foodstall.obj", "OBJ//foodstall.mtl");
+	EnMGR.CreateAABB("Stall1", Vector3(0, 6, -65), Vector3(-24, -6, -20), Vector3(24, 20, 20));
+	
 	//Skybox
 	meshList[GEO_FRONT] = MeshBuilder::GenerateQuad("front", Color(1, 1, 1), 1.f);
 	meshList[GEO_FRONT]->textureID = LoadTGA("Image//front.tga");
@@ -140,6 +90,8 @@ void SceneMH::Init()
 
 	meshList[GEO_TILE] = MeshBuilder::GenerateOBJMTL("tile", "OBJ//tile.obj", "OBJ//tile.mtl");
 
+	meshList[GEO_MONEY] = MeshBuilder::GenerateOBJMTL("Money!", "OBJ//money.obj", "OBJ//money.mtl");
+		
 	meshList[GEO_LIGHTBALL] = MeshBuilder::GenerateSphere("sphere", Color(1,1,1), 18, 18, 1.0f);
 
 	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1500, 1500, 1500);
@@ -219,7 +171,7 @@ void SceneMH::Init()
 	light[0].spotDirection.Set(0.f, 1.f, 0.f);
 
 	light[1].type = Light::LIGHT_POINT;
-	light[1].position.Set(camera.position.x, 10, camera.position.z);
+	light[1].position.Set(PlayerEntity->FPSCam->position.x, 10, PlayerEntity->FPSCam->position.z);
 	light[1].color.Set(1, 1, 1);
 	light[1].power = 2.0f;
 	light[1].kC = 1.f;
@@ -288,8 +240,28 @@ void SceneMH::Reset()
 
 void SceneMH::Update(double dt)
 {
-	camera.Update(dt);
-
+	switch (currEvent) {
+	case 1:
+		EventLength += dt;
+		if (EventLength > 5) {
+			currEvent = 0;
+			EventLength = 0;
+		}
+		else if(Application::IsKeyPressed('F')){
+			currEvent = 2;
+		}
+	}
+	std::string temp = EnMGR.ACAR(PlayerEntity, 100, EnMGR.entityList);
+	PlayerEntity->Update(dt);
+	EnMGR.UpdateHitbox(PlayerEntity);
+	EnMGR.Update(dt);
+	if (temp != " ") {
+		PlayerEntity->returnToTemp();
+		if (temp == "Stall1") {
+			currEvent = 1;
+		}
+	}
+	std::cout << "playerentitypos :" << PlayerEntity->pos << "campos" << PlayerEntity->FPSCam->position << std::endl;
 	if (Application::IsKeyPressed(0x31))
 	{
 		glEnable(GL_CULL_FACE);
@@ -400,26 +372,27 @@ void SceneMH::Render()
 	}
 
 	viewStack.LoadIdentity();
-	viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
+	viewStack.LookAt(PlayerEntity->FPSCam->position.x, PlayerEntity->FPSCam->position.y, PlayerEntity->FPSCam->position.z, PlayerEntity->FPSCam->target.x, PlayerEntity->FPSCam->target.y, PlayerEntity->FPSCam->target.z, PlayerEntity->FPSCam->up.x, PlayerEntity->FPSCam->up.y, PlayerEntity->FPSCam->up.z);
 	modelStack.LoadIdentity();
 
 	//RenderMesh(meshList[GEO_AXES], false);
 	RenderSkybox();
 
 	modelStack.PushMatrix();
-	modelStack.Translate(0, -6, -235);
+	modelStack.Translate(0, -6, 0);
 	modelStack.Scale(600, 200, 200);
 	modelStack.Rotate(-90, 0, 1, 0);
 	modelStack.Rotate(90, 1, 0, 0);
 	RenderMesh(meshList[GEO_FLOOR], false);
 	modelStack.PopMatrix();
 
-	for (int x = 0; x < 3; x++) {
-		for (int z = 0; z < 3; z++) {
-			RenderTableSet(x * 40, 0, z * 40);
-			
+	for (int x = 0; x < 1; x++) {
+		for (int z = 0; z < 1; z++) {
+			RenderTableSet(40 * x, 0, 40 * z);
 		}
 	}
+	
+	RenderStallSet(0, 0, 0, "SOUP");
 
 	if(Application::IsKeyPressed('E'))
 		RenderTextOnScreen(meshList[GEO_TEXT], "", Color(0, 1, 0), 4, 0, 0);
@@ -647,10 +620,28 @@ void SceneMH::RenderTableSet(float x, float y, float z) {
 		modelStack.Scale(4, 4, 4);
 		RenderMesh(meshList[GEO_CHAIR], true);
 		modelStack.PopMatrix();
+		//modelStack.PushMatrix();
+		//modelStack.Translate(0, -6, 0);
+		//modelStack.Scale(20, 20, 20);
+		//RenderMesh(meshList[GEO_TILE], true);
+		//modelStack.PopMatrix();
+	modelStack.PopMatrix();
+}
+
+void SceneMH::RenderStallSet(float x, float y, float z, std::string text) {
+	modelStack.PushMatrix();
+	modelStack.Translate(x, y, z);
 		modelStack.PushMatrix();
-		modelStack.Translate(0, -6, 0);
-		modelStack.Scale(20, 20, 20);
-		RenderMesh(meshList[GEO_TILE], true);
+		modelStack.Translate(0, 6, -65);
+		modelStack.Rotate(-90, 0, 1, 0);
+		modelStack.Scale(12, 12, 12);
+		RenderMesh(meshList[GEO_STALL], true);
+		modelStack.PopMatrix();
+		
+		modelStack.PushMatrix();
+		modelStack.Translate(-13, 10, -53);
+		modelStack.Scale(3, 3, 3);
+		RenderText(meshList[GEO_TEXT], text, Color(1, 1, 1));
 		modelStack.PopMatrix();
 	modelStack.PopMatrix();
 }
