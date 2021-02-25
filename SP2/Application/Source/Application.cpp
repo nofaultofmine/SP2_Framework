@@ -112,7 +112,6 @@ void Application::Init()
 void Application::Run()
 {
 	//Main Loop
-<<<<<<< HEAD
 	Scene *scene = new SceneXJ();
 	Scene* scene1 = new SceneMH();
 	Scene* scene2 = new Assignment2();
@@ -122,7 +121,6 @@ void Application::Run()
 	scene1->Init();
 	scene2->Init();
 	scene3->Init();
-=======
 	Scene *scene = new SceneT();
 	//Scene* scene1 = new SceneUI();
 	//Scene* scene2 = new Assignment2();
@@ -130,7 +128,6 @@ void Application::Run()
 	scene->Init();
 	//scene1->Init();
 	//scene2->Init();
->>>>>>> 4d8a585361a9a8b42b8db6750bd804566d06db63
 
 	m_timer.startTimer();    // Start timer to calculate how long it takes to render this frame
 	while (!glfwWindowShouldClose(m_window) && !IsKeyPressed(VK_ESCAPE))
@@ -166,7 +163,6 @@ void Application::Run()
 		
 =======
 		*/
->>>>>>> 4d8a585361a9a8b42b8db6750bd804566d06db63
 		scene->Update(m_timer.getElapsedTime());
 		scene->Render();
 		//Swap buffers
