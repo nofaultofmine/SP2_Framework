@@ -1,13 +1,11 @@
-﻿  Application.cpp
-  SceneXJ.cpp
-C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(49,21): warning C4552: '-': result of expression not used
-C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(629,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(629,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(630,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(630,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Generating code
-  688 of 944 functions (72.9%) were compiled, the rest were copied from previous compilation.
-    2 functions were new in current compilation
-    49 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  Application.vcxproj -> C:\Users\65861\source\repos\SP2_Framework_4\SP2\Release\Application.exe
+﻿  SceneXJ.cpp
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(372,29): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(394,19): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(402,29): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(684,86): error C2664: 'void SceneXJ::RenderTextOnScreen(Mesh *,std::string,Color,float,float,float)': cannot convert argument 2 from 'float' to 'std::string'
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(684,86): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.h(220,7): message : see declaration of 'SceneXJ::RenderTextOnScreen'
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(861,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(861,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(862,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(862,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data

@@ -12,6 +12,12 @@
 
 class SceneXJ : public Scene
 {
+
+	enum scenes
+	{
+
+	};
+
 	enum GEOMETRY_TYPE
 	{
 		GEO_AXES,
@@ -19,7 +25,6 @@ class SceneXJ : public Scene
 		GEO_QUAD,
 		GEO_QUAD2,
 		GEO_CUBE,
-		GEO_SWORDBASE,
 		GEO_CIRCLE,
 		GEO_RING,
 		GEO_RING1,
@@ -27,10 +32,6 @@ class SceneXJ : public Scene
 		GEO_SPHERE,
 		GEO_SPHERE2,
 		GEO_SPHERE3,
-		GEO_EYES,
-		GEO_HAIR,
-		GEO_BOMBCASE,
-		GEO_LEGJOINT,
 		GEO_CYLINDER,
 		GEO_CYLINDER2,
 		GEO_CYLINDER3,
@@ -41,9 +42,27 @@ class SceneXJ : public Scene
 		GEO_CONE2,
 		GEO_HEMISPHERE,
 
+		GEO_ZOOM,
+		GEO_ZOOM2,
+		GEO_ZOOM3,
+		GEO_ZOOM4,
 
 		GEO_WALL,
+		GEO_WALL2,
+		GEO_WALL3,
+		GEO_WALL4,
+		GEO_WALL5,
+		GEO_WALL6,
+		GEO_WALL7,
+		GEO_WALL8,
+		GEO_WALL9,
+		GEO_WALL10, 
+		GEO_WALL11,
+		GEO_WALL12,
+		GEO_ROOF,
 
+
+		GEO_TEXTBOX,
 
 		//Skybox & Lightball
 		GEO_LIGHTBALL,
@@ -155,78 +174,30 @@ private:
 	Light light[3];
 
 	float rotateAngle;
-	float bodyRotateAngle;
-	float bodyRotateAngle2;
-	float bodyRotateAngle3;
-	float headRotateAngle;
-	float swordRotateAngle;
-	float swordRotateAngle2;
-	float armRotateAngle;
-	float armRotateAngle2;
-	float armIdleRotateAngle;
-	float bombX;
-	float bombY;
-	float bombZ;
+
 	//Link Position Parameters
 	float translateX;
 	float translateY;
 	float translateZ;
 	float scaleAll;
-	float eyeScale;
 	float LSPEED;
 
-	float swordFlashTimer;
-	float blinkTimer;
-	float bombTimer;
-	float rotateSpeed;
-	float bodyRotateSpeed;
-	float bodyRotateSpeed2;
-	float headRotateSpeed;
-	float armRotateSpeed;
-	float armRotateSpeed2;
-	float armIdleRotateSpeed;
-	float swordRotateSpeed;
-	float swordRotateSpeed2;
-	float translateSpeed;
-	float scaleSpeed;
-	float eyeScaleSpeed;
-	float bombGravity;
+	float translatedoor;
+	float time;
 
-	//Assignment 1 Booleans
-	bool eyesClosed;
-	bool bombFlash;
-	bool swordSequence1;
-	bool swordSequence2;
-	bool throwSequence1;
-	bool throwSequence2;
-	bool throwSequence3;
-	bool anim1Playing;
-	bool anim2Playing;
-	bool anim3Playing;
 
-	//Assignment2 Booleans
-	bool fpsCamera;
-	bool chest1Opened;
-	bool canInteract;
-	bool gotBombs;
-	bool setBombInActive;
-	bool caveEntranceBroken;
-	bool cutSceneOn;
-	bool reachedDekuTree;
-	bool masterSwordGet;
-	bool darkLinkDefeated;
-	bool canClick;
-	bool instructionTextBoxOn;
-	bool insideCave;
-	bool atCaveEntrance;
 
 	//Assignment2 Values
 	float textTimer;
-	float lilyRotateAngle;
-	float masterSwordY;
-	float darkLinkY;
 	int dialogueNumber;
 	int goalNumber;
+
+	//SP2
+	bool dooropen;
+	bool doorclose;
+	bool textbox;
+	bool interact;
+
 
 	//float FPS;
 

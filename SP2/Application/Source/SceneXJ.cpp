@@ -40,57 +40,15 @@ void SceneXJ::Init()
 	// Animation Parameters
 	LSPEED = 10.0f;
 	rotateAngle = 0.0f;
-	bodyRotateAngle = 0.0f;
-	bodyRotateAngle2 = 0.0f;
-	bodyRotateAngle3 = 0.0f;
-	headRotateAngle = 0.0f;
-	armRotateAngle = -60.0f;
-	armRotateAngle2 = 0.0f;
-	armIdleRotateAngle -50.0f;
-	swordRotateAngle = 0.0f;
-	swordRotateAngle2 = 0.0f;
 	translateX = 0.0f;
 	translateY = 0.0f;
 	translateZ = -100.0f;
-	masterSwordY = -8.0f;
-	bombX = 0.0f;
-	bombY = 0.0f;
+	translatedoor = 0;
 
-	scaleAll = 0.2f;
-	eyeScale = 0.2f;
-	rotateSpeed = 360.0f;
-	bodyRotateSpeed = 24.0f;
-	bodyRotateSpeed2 = 90.0f;
-	headRotateSpeed = 15.0f;
-	armRotateSpeed = 60.0f;
-	armRotateSpeed2 = 10.0f;
-	armIdleRotateSpeed = 60.0f;
-	swordRotateSpeed = 0.0f;
-	swordRotateSpeed2 = 0.0f;
-	translateSpeed = 1.6f;
-	scaleSpeed = 1.0f;
-	eyeScaleSpeed = 1.0f;
-	blinkTimer = 0.0f;
-	swordFlashTimer = 0.5f;
-	bombTimer = 0.5f;
-	bombGravity = 5.0f;
-
-	eyesClosed = false;
-	chest1Opened = false;
-	canInteract = false;
-	setBombInActive = false;
-	instructionTextBoxOn = true;
-	bombFlash = false;
-	swordSequence1 = false;
-	swordSequence2 = false;
-
-	throwSequence1 = false;
-	throwSequence2 = false;
-	throwSequence3 = false;
-
-	anim1Playing = false;
-	anim2Playing = false;
-	anim3Playing = false;
+	dooropen = false;
+	doorclose = true;
+	textbox = false;
+	interact = false;
 
 	Mtx44 projection;
 	projection.SetToPerspective(45.f, 4.f / 3.f, 0.1f, 10000.f);
@@ -108,26 +66,64 @@ void SceneXJ::Init()
 	
 	//walls
 	meshList[GEO_WALL] = MeshBuilder::GenerateQuad("wall", Color(1, 1, 1), 1.f);
+	meshList[GEO_WALL]->textureID = LoadTGA("Image/wall.tga");
 
+	meshList[GEO_WALL2] = MeshBuilder::GenerateQuad("wall2", Color(1, 1, 1), 1.f);
+	meshList[GEO_WALL2]->textureID = LoadTGA("Image/wall.tga");
+
+	meshList[GEO_WALL3] = MeshBuilder::GenerateQuad("wall3", Color(1, 1, 1), 1.f);
+	meshList[GEO_WALL3]->textureID = LoadTGA("Image/wall.tga");
+
+	meshList[GEO_WALL4] = MeshBuilder::GenerateQuad("wall4", Color(1, 1, 1), 1.f);
+	meshList[GEO_WALL4]->textureID = LoadTGA("Image/wall.tga");
+
+	meshList[GEO_WALL5] = MeshBuilder::GenerateQuad("wall5", Color(1, 1, 1), 1.f);
+	meshList[GEO_WALL5]->textureID = LoadTGA("Image/wall.tga");
+
+	meshList[GEO_WALL6] = MeshBuilder::GenerateQuad("wall6", Color(1, 1, 1), 1.f);
+	meshList[GEO_WALL6]->textureID = LoadTGA("Image/wall.tga");
+
+	meshList[GEO_WALL7] = MeshBuilder::GenerateQuad("wall7", Color(1, 1, 1), 1.f);
+	meshList[GEO_WALL7]->textureID = LoadTGA("Image/wall.tga");
+
+	meshList[GEO_WALL8] = MeshBuilder::GenerateQuad("wall8", Color(1, 1, 1), 1.f);
+	meshList[GEO_WALL8]->textureID = LoadTGA("Image/wall.tga");
+
+	meshList[GEO_WALL9] = MeshBuilder::GenerateQuad("wall9", Color(1, 1, 1), 1.f);
+	meshList[GEO_WALL9]->textureID = LoadTGA("Image/wall.tga");
+
+	meshList[GEO_WALL10] = MeshBuilder::GenerateQuad("wall10", Color(1, 1, 1), 1.f);
+	meshList[GEO_WALL10]->textureID = LoadTGA("Image/wall.tga");
+
+	meshList[GEO_WALL11] = MeshBuilder::GenerateQuad("wall11", Color(1, 1, 1), 1.f);
+	meshList[GEO_WALL11]->textureID = LoadTGA("Image/wall.tga");
+
+	meshList[GEO_WALL12] = MeshBuilder::GenerateQuad("wall12", Color(1, 1, 1), 1.f);
+	meshList[GEO_WALL12]->textureID = LoadTGA("Image/wall.tga");
+
+	meshList[GEO_ROOF] = MeshBuilder::GenerateQuad("roof", Color(1, 1, 1), 1.f);
+	meshList[GEO_ROOF]->textureID = LoadTGA("Image/wall.tga");
 
 	//Skybox
 	meshList[GEO_FRONT] = MeshBuilder::GenerateQuad("front", Color(1, 1, 1), 1.f);
-	meshList[GEO_FRONT]->textureID = LoadTGA("Image//frontXJ.tga");
+	meshList[GEO_FRONT]->textureID = LoadTGA("Image//front.tga");
 
 	meshList[GEO_BACK] = MeshBuilder::GenerateQuad("back", Color(1, 1, 1), 1.f);
-	meshList[GEO_BACK]->textureID = LoadTGA("Image//backXJ.tga");
+	meshList[GEO_BACK]->textureID = LoadTGA("Image//back.tga");
 
 	meshList[GEO_LEFT] = MeshBuilder::GenerateQuad("left", Color(1, 1, 1), 1.f);
-	meshList[GEO_LEFT]->textureID = LoadTGA("Image//leftXJ.tga");
+	meshList[GEO_LEFT]->textureID = LoadTGA("Image//left.tga");
 
 	meshList[GEO_RIGHT] = MeshBuilder::GenerateQuad("right", Color(1, 1, 1), 1.f);
-	meshList[GEO_RIGHT]->textureID = LoadTGA("Image//rightXJ.tga");
+	meshList[GEO_RIGHT]->textureID = LoadTGA("Image//right.tga");
 
 	meshList[GEO_TOP] = MeshBuilder::GenerateQuad("top", Color(1, 1, 1), 1.f);
-	meshList[GEO_TOP]->textureID = LoadTGA("Image//topXJ.tga");
+	meshList[GEO_TOP]->textureID = LoadTGA("Image//top.tga");
 
 	meshList[GEO_BOTTOM] = MeshBuilder::GenerateQuad("bottom", Color(1, 1, 1), 1.f);
-	meshList[GEO_BOTTOM]->textureID = LoadTGA("Image//bottomXJ.tga");
+	meshList[GEO_BOTTOM]->textureID = LoadTGA("Image//bottom.tga");
+
+	//text
 
 	meshList[GEO_TEXT] = MeshBuilder::GenerateText("text", 16, 16);
 	meshList[GEO_TEXT]->textureID = LoadTGA("Image//calibri.tga");
@@ -138,6 +134,11 @@ void SceneXJ::Init()
 	meshList[GEO_TEXT2] = MeshBuilder::GenerateText("text2", 16, 16);
 	meshList[GEO_TEXT2]->textureID = LoadTGA("Image//ComicSans.tga");
 
+	meshList[GEO_TEXTBOX] = MeshBuilder::GenerateQuad("textbox", Color(1, 1, 1), 1.f);
+	meshList[GEO_TEXTBOX]->textureID = LoadTGA("Image//Text_box1.tga");
+
+
+
 
 
 	meshList[GEO_LIGHTBALL] = MeshBuilder::GenerateSphere("sphere", Color(1,1,1), 18, 18, 1.0f);
@@ -146,7 +147,30 @@ void SceneXJ::Init()
 
 	//objects
 
-	//meshList[GEO_MODEL1] = MeshBuilder::GenerateOBJ("chair", "OBJ//school_chair.obj");
+	meshList[GEO_ZOOM] = MeshBuilder::GenerateQuad("zoom", Color(1, 1, 1), 1.f);
+	meshList[GEO_ZOOM]->textureID = LoadTGA("Image//zoom1.tga");
+
+	meshList[GEO_ZOOM2] = MeshBuilder::GenerateQuad("zoom", Color(1, 1, 1), 1.f);
+	meshList[GEO_ZOOM2]->textureID = LoadTGA("Image//zoom2.tga");
+
+	meshList[GEO_ZOOM3] = MeshBuilder::GenerateQuad("zoom", Color(1, 1, 1), 1.f);
+	meshList[GEO_ZOOM3]->textureID = LoadTGA("Image//zoom3.tga");
+
+	meshList[GEO_ZOOM4] = MeshBuilder::GenerateQuad("zoom", Color(1, 1, 1), 1.f);
+	meshList[GEO_ZOOM4]->textureID = LoadTGA("Image//zoom4.tga");
+
+	meshList[GEO_MODEL1] = MeshBuilder::GenerateOBJMTL("model", "OBJ//Door.obj", "OBJ//Door.mtl");
+	meshList[GEO_MODEL1]->textureID = LoadTGA("Image//Door.TGA");
+
+	meshList[GEO_MODEL2] = MeshBuilder::GenerateOBJMTL("model", "OBJ//computerScreen.obj", "OBJ//computerScreen.mtl");
+	meshList[GEO_MODEL2]->textureID = LoadTGA("Image/water.tga");
+
+	meshList[GEO_MODEL3] = MeshBuilder::GenerateOBJMTL("model", "OBJ//deskCorner.obj", "OBJ//deskCorner.mtl");
+	meshList[GEO_MODEL3]->textureID = LoadTGA("Image/water.tga");
+
+	meshList[GEO_MODEL4] = MeshBuilder::GenerateOBJMTL("model", "OBJ//Cyborg.obj", "OBJ//Cyborg.mtl");
+	meshList[GEO_MODEL4]->textureID = LoadTGA("Image/Cyborg.tga");
+
 	
 
 
@@ -294,7 +318,7 @@ void SceneXJ::Reset()
 
 void SceneXJ::Update(double dt)
 {
-	camera.Update(dt);
+	/*camera.Update(dt);*/
 
 
 
@@ -333,6 +357,76 @@ void SceneXJ::Update(double dt)
 	{
 		light[0].power = 2;
 	}
+
+	if ( camera.position.x > 20 && camera.position.x < 340 && camera.position.z > -20 && camera.position.z < 300)
+	{
+		dooropen = true;
+		doorclose = false;
+	}
+
+	if (dooropen == true)
+	{
+
+			if (translatedoor <= 300)
+			{
+				translatedoor += 50 * dt;
+				interact = true;
+			}
+
+			else
+			{
+
+				dooropen = false;
+				doorclose = true;
+				interact = false;
+
+			}
+
+	}
+
+
+	if (doorclose == true)
+	{
+
+		if (time <= 500)
+
+		{
+			time += 50 * dt;
+		}
+
+
+		else
+		{
+			if (translatedoor >= 0.0f)
+			{
+				translatedoor -= 50 * dt;
+
+			}
+
+			else
+			{
+				translatedoor = 0;
+				time = 0;
+
+			}
+		}
+
+	}
+
+	if (interact == false)
+	{
+		camera.Update(dt);
+		textbox = false;
+	}
+	else
+	{
+		textbox = true;
+	}
+
+
+	if (Application::IsKeyPressed('E') && camera.position.x > 20 && camera.position.x < 340 && camera.position.z > -300 && camera.position.z < 300)
+
+
 
 	glUniform1f(m_parameters[U_LIGHT0_POWER], light[0].power);
 	glUniform1i(m_parameters[U_LIGHT0_TYPE], light[0].type);
@@ -427,25 +521,166 @@ void SceneXJ::Render()
 	//RenderMesh(meshList[GEO_AXES], false);
 	RenderSkybox();
 
+	//floor
 	modelStack.PushMatrix();
-	modelStack.Translate(0, -6, -235);
-	modelStack.Scale(600, 200, 200);
+	modelStack.Translate(0, -60, -235);
+	modelStack.Scale(600, 400, 600);
 	modelStack.Rotate(-90, 0, 1, 0);
 	modelStack.Rotate(90, 1, 0, 0);
 	RenderMesh(meshList[GEO_FLOOR], false);
 	modelStack.PopMatrix();
 
+	//Classroom
 	modelStack.PushMatrix();
-	modelStack.Translate(0, -6, -235);
-	modelStack.Scale(600, 200, 200);
+	modelStack.Translate(-200, 40, -535);
+	modelStack.Scale(200, 200, 200);
 	RenderMesh(meshList[GEO_WALL], false);
 	modelStack.PopMatrix();
 
-	//modelStack.PushMatrix();
-	//modelStack.Translate(0, -6, -235);
-	//modelStack.Scale(10, 10, 10);
-	//RenderMesh(meshList[GEO_MODEL1], false);
-	//modelStack.PopMatrix();
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 40, -535);
+	modelStack.Scale(200, 200, 200);
+	RenderMesh(meshList[GEO_WALL2], false);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(200, 40, -535);
+	modelStack.Scale(200, 200, 200);
+	RenderMesh(meshList[GEO_WALL3], false);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(300, 40, -435);
+	modelStack.Scale(200, 200, 200);
+	modelStack.Rotate(-90, 0, 1, 0);
+	RenderMesh(meshList[GEO_WALL4], false);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(300, 40, -235);
+	modelStack.Scale(200, 200, 200);
+	modelStack.Rotate(-90, 0, 1, 0);
+	RenderMesh(meshList[GEO_WALL5], false);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(300, 40, -35);
+	modelStack.Scale(200, 200, 200);
+	modelStack.Rotate(-90, 0, 1, 0);
+	RenderMesh(meshList[GEO_WALL6], false);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(-translatedoor,0,0);
+	modelStack.Translate(200, 40, 65);
+	modelStack.Scale(200, 200, 200);
+	modelStack.Rotate(-180, 0, 1, 0);
+	RenderMesh(meshList[GEO_WALL7], false);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 40,65);
+	modelStack.Scale(200, 200, 200);
+	modelStack.Rotate(-180, 0, 1, 0);
+	RenderMesh(meshList[GEO_WALL8], false);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(-200, 40, 65);
+	modelStack.Scale(200, 200, 200);
+	modelStack.Rotate(-180, 0, 1, 0);
+	RenderMesh(meshList[GEO_WALL9], false);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(-300, 40, -435);
+	modelStack.Scale(200, 200, 200);
+	modelStack.Rotate(-270, 0, 1, 0);
+	RenderMesh(meshList[GEO_WALL10], false);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(-300,40, -235);
+	modelStack.Scale(200, 200, 200);
+	modelStack.Rotate(-270, 0, 1, 0);
+	RenderMesh(meshList[GEO_WALL11], false);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(-300, 40, -35);
+	modelStack.Scale(200, 200, 200);
+	modelStack.Rotate(-270, 0, 1, 0);
+	RenderMesh(meshList[GEO_WALL12], false);
+	modelStack.PopMatrix();
+
+	//models
+	modelStack.PushMatrix();
+	modelStack.Translate(-translatedoor, 0, 0);
+	modelStack.Translate(200, -60, 65);
+	modelStack.Scale(7, 7, 7);
+	modelStack.Rotate(-180, 0, 1, 0);
+	RenderMesh(meshList[GEO_MODEL1], false);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(170, 0, -390);
+	modelStack.Scale(200, 200, 200);
+	modelStack.Rotate(-90, 0, 1, 0);
+	RenderMesh(meshList[GEO_MODEL2], false);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(300, -80, -340);
+	modelStack.Scale(200, 200, 200);
+	modelStack.Rotate(-90, 0, 1, 0);
+	RenderMesh(meshList[GEO_MODEL3], false);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(220, -70, -390);
+	modelStack.Scale(11, 11, 11);
+	RenderMesh(meshList[GEO_MODEL4], false);
+	modelStack.PopMatrix();
+
+
+	//objects
+
+	modelStack.PushMatrix();
+	modelStack.Translate(-200, 20, -35);
+	modelStack.Scale(100, 100, 100);
+	modelStack.Rotate(-270, 0, 1, 0);
+	modelStack.Rotate(180, 1, 0, 0);
+	RenderMesh(meshList[GEO_ZOOM], false);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(-100, 20, -65);
+	modelStack.Scale(100, 100, 100);
+	modelStack.Rotate(-270, 0, 1, 0);
+	modelStack.Rotate(180, 1, 0, 0);
+	RenderMesh(meshList[GEO_ZOOM2], false);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(-200, 20, -405);
+	modelStack.Scale(100, 100, 100);
+	modelStack.Rotate(-270, 0, 1, 0);
+	RenderMesh(meshList[GEO_ZOOM3], false);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(-100, 20, -355);
+	modelStack.Scale(100, 100, 100);
+	modelStack.Rotate(-270, 0, 1, 0);
+	RenderMesh(meshList[GEO_ZOOM4], false);
+	modelStack.PopMatrix();
+
+	if (textbox == true) 
+	{
+		RenderMeshOnScreen(meshList[GEO_TEXTBOX], 40, 13, 80, 25);
+		RenderTextOnScreen(meshList[GEO_TEXT], "School sux", Color(0, 0, 0), 3, 10, 16);
+	}
+
 
 }
 
@@ -502,54 +737,51 @@ void SceneXJ::RenderMesh(Mesh* mesh, bool enableLight)
 
 void SceneXJ::RenderSkybox()
 {
-	modelStack.PushMatrix();
-	modelStack.Scale(3000, 3000, 3000);
-	modelStack.Translate(0, 0.f, 0.5);
-	//modelStack.Rotate(0, 1, 0, 0);
-	//modelStack.Rotate(180, 0, 0, 1);
-	RenderMesh(meshList[GEO_FRONT], false);
-	modelStack.PopMatrix();
+    modelStack.PushMatrix();
+    modelStack.Scale(3000, 3000, 3000);
+    modelStack.Translate(0, 0.f, 0.5);
+    modelStack.Rotate(180, 1, 0, 0);
+    modelStack.Rotate(180, 0, 0, 1);
+    RenderMesh(meshList[GEO_FRONT], false);
+    modelStack.PopMatrix();
 
-	modelStack.PushMatrix();
-	modelStack.Scale(3000, 3000, 3000);
-	modelStack.Translate(-0.5, 0.f, 0);
-	modelStack.Rotate(0, 1, 0, 0);
-	modelStack.Rotate(-90, 0, 1, 0);
-	//modelStack.Rotate(180, 0, 0, 1);
-	RenderMesh(meshList[GEO_RIGHT], false);
-	modelStack.PopMatrix();
+    modelStack.PushMatrix();
+    modelStack.Scale(3000, 3000, 3000);
+    modelStack.Translate(-0.5, 0.f, 0);
+    modelStack.Rotate(90, 0, 1, 0);
+    RenderMesh(meshList[GEO_RIGHT], false);
+    modelStack.PopMatrix();
 
-	modelStack.PushMatrix();
-	modelStack.Scale(3000, 3000, 3000);
-	modelStack.Translate(0.5, 0.f, 0);
-	modelStack.Rotate(0, 1, 0, 0);
-	modelStack.Rotate(90, 0, 1, 0);
-	//modelStack.Rotate(180, 0, 0, 1);
-	RenderMesh(meshList[GEO_LEFT], false);
-	modelStack.PopMatrix();
+    modelStack.PushMatrix();
+    modelStack.Scale(3000, 3000, 3000);
+    modelStack.Translate(0.5, 0.f, 0);
+    modelStack.Rotate(-90, 0, 1, 0);
+    RenderMesh(meshList[GEO_LEFT], false);
+    modelStack.PopMatrix();
 
-	modelStack.PushMatrix();
-	modelStack.Scale(3000, 3000, 3000);
-	modelStack.Translate(0, 0.5f, 0);
-	modelStack.Rotate(-90, 1, 0, 0);
-	modelStack.Rotate(0, 0, 0, 1);
-	RenderMesh(meshList[GEO_TOP], false);
-	modelStack.PopMatrix();
+    modelStack.PushMatrix();
+    modelStack.Scale(3000, 3000, 3000);
+    modelStack.Translate(0, 0.5f, 0);
+    modelStack.Rotate(90, 1, 0, 0);
+    modelStack.Rotate(-90, 0, 0, 1);
+    RenderMesh(meshList[GEO_TOP], false);
+    modelStack.PopMatrix();
 
-	modelStack.PushMatrix();
-	modelStack.Scale(3000, 3000, 3000);
-	modelStack.Translate(0, -0.5f, 0);
-	modelStack.Rotate(90, 1, 0, 0);
-	modelStack.Rotate(360, 0, 0, 1);
-	RenderMesh(meshList[GEO_BOTTOM], false);
-	modelStack.PopMatrix();
+    modelStack.PushMatrix();
+    modelStack.Scale(3000, 3000, 3000);
+    modelStack.Translate(0, -0.5f, 0);
+    modelStack.Rotate(-90, 1, 0, 0);
+    modelStack.Rotate(90, 0, 0, 1);
+    RenderMesh(meshList[GEO_BOTTOM], false);
+    modelStack.PopMatrix();
 
-	modelStack.PushMatrix();
-	modelStack.Scale(3000, 3000, 3000);
-	modelStack.Translate(0, 0.f, -0.5);
-	modelStack.Rotate(180, 0, 1, 0);
-	RenderMesh(meshList[GEO_BACK], false);
-	modelStack.PopMatrix();
+    modelStack.PushMatrix();
+    modelStack.Scale(3000, 3000, 3000);
+    modelStack.Translate(0, 0.f, -0.5);
+    modelStack.Rotate(180, 0, 0, 1);
+    modelStack.Rotate(180, 0, 0, 1);
+    RenderMesh(meshList[GEO_BACK], false);
+    modelStack.PopMatrix();
 }
 
 void SceneXJ::RenderText(Mesh* mesh, std::string text, Color color)
