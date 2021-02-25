@@ -1,13 +1,19 @@
-<<<<<<< HEAD
-﻿  SceneXJ.cpp
-C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(380,30): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(399,19): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(407,29): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(437,57): error C2106: '=': left operand must be l-value
-C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(888,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(888,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(889,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(889,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-=======
-﻿  Application.vcxproj -> C:\Users\TiFfa\source\repos\nofaultofmine\SP2_Framework\SP2\Release\Application.exe
->>>>>>> 4d8a585361a9a8b42b8db6750bd804566d06db63
+﻿  Application.cpp
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\Application.cpp(115,1): error C2059: syntax error: '<<'
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\Application.cpp(117,29): error C2061: syntax error: identifier 'SceneMH'
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\Application.cpp(119,29): error C2061: syntax error: identifier 'SceneXJ'
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\Application.cpp(121,2): error C2065: 'scene': undeclared identifier
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\Application.cpp(125,1): error C2059: syntax error: '=='
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\Application.cpp(130,2): error C2065: 'scene': undeclared identifier
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\Application.cpp(133,1): error C2059: syntax error: '>>'
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\Application.cpp(142,5): error C2065: 'scene': undeclared identifier
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\Application.cpp(143,5): error C2065: 'scene': undeclared identifier
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\Application.cpp(144,5): error C2065: 'scene': undeclared identifier
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\Application.cpp(152,5): error C2065: 'scene': undeclared identifier
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\Application.cpp(153,5): error C2065: 'scene': undeclared identifier
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\Application.cpp(154,5): error C2065: 'scene': undeclared identifier
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\Application.cpp(169,1): error C2059: syntax error: '>>'
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\Application.cpp(171,3): error C2065: 'scene': undeclared identifier
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\Application.cpp(179,2): error C2065: 'scene': undeclared identifier
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\Application.cpp(180,9): error C2065: 'scene': undeclared identifier
+C:\Users\rogue\Documents\Poly\Year 1 S2\DM2197 Studio Project 2\SP2_Grp12_Framework\SP2_Framework\SP2\Application\Source\Application.cpp(180,14): error C2541: 'delete': cannot delete objects that are not pointers
