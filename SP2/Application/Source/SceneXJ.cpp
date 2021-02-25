@@ -63,6 +63,9 @@ void SceneXJ::Init()
 	//floor
 	meshList[GEO_FLOOR] = MeshBuilder::GenerateQuad("Floor", Color(1, 1, 1), 1.f);
 	meshList[GEO_FLOOR]->textureID = LoadTGA("Image//tiles.tga");
+
+	meshList[GEO_FLOOR2] = MeshBuilder::GenerateQuad("Floor", Color(1, 1, 1), 1.f);
+	meshList[GEO_FLOOR2]->textureID = LoadTGA("Image//tiles.tga");
 	
 	//walls
 	meshList[GEO_WALL] = MeshBuilder::GenerateQuad("wall", Color(1, 1, 1), 1.f);
@@ -171,7 +174,7 @@ void SceneXJ::Init()
 	meshList[GEO_MODEL4] = MeshBuilder::GenerateOBJMTL("model", "OBJ//Cyborg.obj", "OBJ//Cyborg.mtl");
 	meshList[GEO_MODEL4]->textureID = LoadTGA("Image/Cyborg.tga");
 
-	
+//	PlayerEntity = new Player(position, target, up, fatness); // pos, target and up are the camera parameters, fatness is the size of your player hitbox
 
 
 	//Load vertex and fragment shaders
@@ -326,10 +329,15 @@ void SceneXJ::Update(double dt)
 
 
 	//Interactions
-	//Player opens chest
 
 
-
+	//std::string temp = EnMGR.ACAR(PlayerEntity, 100, EnMGR.entityList); // sets the temp string to whatever collided object
+	//PlayerEntity->Update(dt); // updates the player's movements.
+	//EnMGR.UpdateHitbox(PlayerEntity); // updates the player's hitbox
+	//EnMGR.Update(dt); // atm this just refreshes all the entity hitboxes
+	//if (temp != " ") {
+	//	PlayerEntity->returnToTemp(); // bounces the player back
+	//}
 
 
 	if (Application::IsKeyPressed(0x31))
@@ -358,7 +366,7 @@ void SceneXJ::Update(double dt)
 		light[0].power = 2;
 	}
 
-	if ( camera.position.x > 20 && camera.position.x < 340 && camera.position.z > -20 && camera.position.z < 300)
+	if (Application::IsKeyPressed('E') && camera.position.x > 180 && camera.position.x < 260 && camera.position.z > 310 && camera.position.z < 390)
 	{
 		dooropen = true;
 		doorclose = false;
@@ -369,16 +377,13 @@ void SceneXJ::Update(double dt)
 
 			if (translatedoor <= 300)
 			{
-				translatedoor += 50 * dt;
-				interact = true;
+				translatedoor += 100 * dt;
 			}
 
 			else
 			{
-
 				dooropen = false;
 				doorclose = true;
-				interact = false;
 
 			}
 
@@ -424,7 +429,17 @@ void SceneXJ::Update(double dt)
 	}
 
 
-	if (Application::IsKeyPressed('E') && camera.position.x > 20 && camera.position.x < 340 && camera.position.z > -300 && camera.position.z < 300)
+	if (Application::IsKeyPressed('E') && camera.position.x > 20 && camera.position.x < 300 && camera.position.z > -500 && camera.position.z < 300)
+	{
+	
+			interact = true;
+
+			if (Application::IsKeyPressed('E') && interact == true)
+			{
+				interact = false;
+			}
+		
+	}
 
 
 
@@ -530,6 +545,14 @@ void SceneXJ::Render()
 	RenderMesh(meshList[GEO_FLOOR], false);
 	modelStack.PopMatrix();
 
+	modelStack.PushMatrix();
+	modelStack.Translate(200, -60, 250);
+	modelStack.Scale(200, 400, 500);
+	modelStack.Rotate(-90, 0, 1, 0);
+	modelStack.Rotate(90, 1, 0, 0);
+	RenderMesh(meshList[GEO_FLOOR2], false);
+	modelStack.PopMatrix();
+
 	//Classroom
 	modelStack.PushMatrix();
 	modelStack.Translate(-200, 40, -535);
@@ -616,7 +639,7 @@ void SceneXJ::Render()
 	//models
 	modelStack.PushMatrix();
 	modelStack.Translate(-translatedoor, 0, 0);
-	modelStack.Translate(200, -60, 65);
+	modelStack.Translate(205, -60, 65);
 	modelStack.Scale(7, 7, 7);
 	modelStack.Rotate(-180, 0, 1, 0);
 	RenderMesh(meshList[GEO_MODEL1], false);
@@ -678,9 +701,13 @@ void SceneXJ::Render()
 	if (textbox == true) 
 	{
 		RenderMeshOnScreen(meshList[GEO_TEXTBOX], 40, 13, 80, 25);
-		RenderTextOnScreen(meshList[GEO_TEXT], "School sux", Color(0, 0, 0), 3, 10, 16);
+		RenderTextOnScreen(meshList[GEO_TEXT], "School sux, Let's Leave", Color(0, 0, 0), 3, 10, 16);
 	}
 
+	//std::stringstream ss;
+	//modelStack.PushMatrix();
+	//RenderTextOnScreen(meshList[GEO_TEXT], camera.position.y, Color(0, 1, 0), 4, 0, 2 );
+	//modelStack.PopMatrix();
 
 }
 

@@ -1,6 +1,7 @@
 #ifndef SceneXJ_H
 #define SceneXJ_H
 
+#include <sstream>
 #include "Scene.h"
 #include "Mtx44.h"
 #include "Camera.h"
@@ -9,6 +10,8 @@
 #include "Mesh.h"
 #include "MatrixStack.h"
 #include "Light.h"
+#include "EntityMGR.h"
+#include "Player.h"
 
 class SceneXJ : public Scene
 {
@@ -22,6 +25,7 @@ class SceneXJ : public Scene
 	{
 		GEO_AXES,
 		GEO_FLOOR,
+		GEO_FLOOR2,
 		GEO_QUAD,
 		GEO_QUAD2,
 		GEO_CUBE,
@@ -184,6 +188,7 @@ private:
 
 	float translatedoor;
 	float time;
+	float timer;
 
 
 
@@ -201,8 +206,14 @@ private:
 
 	//float FPS;
 
+	EntityMGR EnMGR;
+	Player* PlayerEntity;
+
 	Camera3 camera;
 	Camera2 camera2;
+
+
+
 	//Camera3 camera2;
 
 	unsigned m_parameters[U_TOTAL];

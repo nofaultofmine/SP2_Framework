@@ -114,10 +114,12 @@ void Application::Run()
 	Scene *scene = new SceneXJ();
 	Scene* scene1 = new SceneMH();
 	Scene* scene2 = new Assignment2();
+	Scene* scene3 = new SceneXJ();
 	//Scene* scene = scene1;
 	scene->Init();
 	scene1->Init();
 	scene2->Init();
+	scene3->Init();
 
 	m_timer.startTimer();    // Start timer to calculate how long it takes to render this frame
 	while (!glfwWindowShouldClose(m_window) && !IsKeyPressed(VK_ESCAPE))
@@ -127,6 +129,8 @@ void Application::Run()
 			scene = scene1;
 		else if (IsKeyPressed(VK_F2))
 			scene = scene2;
+		else if (IsKeyPressed(VK_F2))
+			scene = scene3;
 		
 		scene->Update(m_timer.getElapsedTime());
 		scene->Render();
