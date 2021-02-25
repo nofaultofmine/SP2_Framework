@@ -1,5 +1,5 @@
-#ifndef SCENETAXI_H
-#define SCENETAXI_H
+#ifndef ASSIGNMENT2_H
+#define ASSIGNMENT2_H
 
 #include "Scene.h"
 #include "Mtx44.h"
@@ -10,7 +10,7 @@
 #include "MatrixStack.h"
 #include "Light.h"
 
-class SceneTaxi : public Scene
+class Assignment2 : public Scene
 {
 	enum GEOMETRY_TYPE
 	{
@@ -18,17 +18,76 @@ class SceneTaxi : public Scene
 		GEO_FLOOR,
 		GEO_QUAD,
 		GEO_QUAD2,
+		//Link
+		GEO_CUBE,
+		GEO_SWORDBASE,
+		GEO_CIRCLE,
+		GEO_RING,
+		GEO_RING1,
+		GEO_RING2,
+		GEO_SPHERE,
+		GEO_SPHERE2,
+		GEO_SPHERE3,
+		GEO_EYES,
+		GEO_HAIR,
+		GEO_BOMBCASE,
+		GEO_LEGJOINT,
+		GEO_CYLINDER,
+		GEO_CYLINDER2,
+		GEO_CYLINDER3,
+		GEO_CYLINDER4,
+		GEO_CYLINDER5,
+		GEO_CYLINDER6,
+		GEO_SWORDBLADE,
+		GEO_SWORDHILT,
+		GEO_SWORDTIP,
+		GEO_EARS,
+		GEO_CONE,
+		GEO_CONE2,
+		GEO_HEMISPHERE,
+		GEO_EXPLOSION,
+		GEO_BOMBFUSE,
+		GEO_SIDEBURNS,
+		GEO_POMMEL,
+		GEO_SWORDGEM,
+		//Skybox & Lightball
 		GEO_LIGHTBALL,
-
-		// Skybox
 		GEO_LEFT,
 		GEO_RIGHT,
 		GEO_TOP,
 		GEO_BOTTOM,
 		GEO_FRONT,
 		GEO_BACK,
-		GEO_TORUS,
-
+		//Other Models
+		GEO_MODEL1,
+		GEO_MODEL2,
+		GEO_MODEL3,
+		GEO_MODEL4,
+		GEO_MODEL5,
+		GEO_MODEL6,
+		GEO_MODEL7,
+		GEO_MODEL8,
+		GEO_MODEL9,
+		GEO_MODEL10,
+		GEO_MODEL11,
+		GEO_MODEL12,
+		GEO_MODEL13,
+		GEO_MODEL14,
+		GEO_MODEL15,
+		GEO_MODEL16,
+		GEO_MODEL17,
+		GEO_MODEL18,
+		GEO_MODEL19,
+		GEO_MODEL20,
+		GEO_MODEL21,
+		GEO_MODEL22,
+		GEO_MODEL23,
+		GEO_MODEL24,
+		GEO_MODEL25,
+		GEO_MODEL26,
+		GEO_MODEL27,
+		GEO_MODEL28,
+		GEO_MODEL29,
 		GEO_TEXT,
 		GEO_TEXT1,
 		GEO_TEXT2,
@@ -100,6 +159,80 @@ private:
 
 	Light light[3];
 
+	float rotateAngle;
+	float bodyRotateAngle;
+	float bodyRotateAngle2;
+	float bodyRotateAngle3;
+	float headRotateAngle;
+	float swordRotateAngle;
+	float swordRotateAngle2;
+	float armRotateAngle;
+	float armRotateAngle2;
+	float armIdleRotateAngle;
+	float bombX;
+	float bombY;
+	float bombZ;
+	//Link Position Parameters
+	float translateX;
+	float translateY;
+	float translateZ;
+	float scaleAll;
+	float eyeScale;
+	float LSPEED;
+
+	float swordFlashTimer;
+	float blinkTimer;
+	float bombTimer;
+	float rotateSpeed;
+	float bodyRotateSpeed;
+	float bodyRotateSpeed2;
+	float headRotateSpeed;
+	float armRotateSpeed;
+	float armRotateSpeed2;
+	float armIdleRotateSpeed;
+	float swordRotateSpeed;
+	float swordRotateSpeed2;
+	float translateSpeed;
+	float scaleSpeed;
+	float eyeScaleSpeed;
+	float bombGravity;
+
+	//Assignment 1 Booleans
+	bool eyesClosed;
+	bool bombFlash;
+	bool swordSequence1;
+	bool swordSequence2;
+	bool throwSequence1;
+	bool throwSequence2;
+	bool throwSequence3;
+	bool anim1Playing;
+	bool anim2Playing;
+	bool anim3Playing;
+
+	//Assignment2 Booleans
+	bool fpsCamera;
+	bool chest1Opened;
+	bool canInteract;
+	bool gotBombs;
+	bool setBombInActive;
+	bool caveEntranceBroken;
+	bool cutSceneOn;
+	bool reachedDekuTree;
+	bool masterSwordGet;
+	bool darkLinkDefeated;
+	bool canClick;
+	bool instructionTextBoxOn;
+	bool insideCave;
+	bool atCaveEntrance;
+
+	//Assignment2 Values
+	float textTimer;
+	float lilyRotateAngle;
+	float masterSwordY;
+	float darkLinkY;
+	int dialogueNumber;
+	int goalNumber;
+
 	//float FPS;
 
 	Camera3 camera;
@@ -122,8 +255,8 @@ private:
 	void RenderMeshOnScreen(Mesh* mesh, int x, int y, int sizex, int sizey);
 
 public:
-	SceneTaxi();
-	~SceneTaxi();
+	Assignment2();
+	~Assignment2();
 
 	virtual void Init();
 	virtual void Reset();

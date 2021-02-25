@@ -101,7 +101,7 @@ void Assignment2::Init()
 	glBindVertexArray(m_vertexArrayID);
 
 	//Mesh::SetMaterialLoc(m_parameters[U_MATERIAL_AMBIENT], m_parameters[U_MATERIAL_DIFFUSE], m_parameters[U_MATERIAL_SPECULAR], m_parameters[U_MATERIAL_SHININESS]);
-	meshList[GEO_FLOOR] = MeshBuilder::GenerateQuad("Floor", Color(1, 0, 0), 1.f);
+	meshList[GEO_FLOOR] = MeshBuilder::GenerateQuad("Floor", Color(1, 1, 1), 1.f);
 	meshList[GEO_FLOOR]->textureID = LoadTGA("Image//bottom1.tga");
 	
 	meshList[GEO_QUAD] = MeshBuilder::GenerateQuad("textBox", Color(1, 1, 1), 1.f);

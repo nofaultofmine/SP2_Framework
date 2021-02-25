@@ -4,5 +4,3 @@ C:\Users\chevy\Desktop\Submission\Submission\Debug\Common.pdb
 C:\Users\chevy\Desktop\Submission\Submission\Common\Debug\Common.pdb
 C:\Users\chevy\Desktop\Submission\Debug\Common.pdb
 C:\Users\chevy\Desktop\Submission\Common\Debug\Common.pdb
-C:\Users\65861\source\repos\SP2_Framework_4\SP2\Debug\Common.pdb
-C:\Users\65861\source\repos\SP2_Framework_4\SP2\Common\Debug\Common.pdb

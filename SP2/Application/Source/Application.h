@@ -19,7 +19,7 @@ public:
 	static int GetWindowHeight();
 	static unsigned m_width;
 	static unsigned m_height;
-
+	static void ChangeScene(unsigned int wow, bool no);
 
 private:
 	// TestYX
