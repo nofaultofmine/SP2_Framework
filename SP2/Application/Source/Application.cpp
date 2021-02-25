@@ -12,12 +12,16 @@
 #include <stdlib.h>
 #include "Scene.h"
 #include "Assignment2.h"
+#include "SceneT.h"
 
 GLFWwindow* m_window;
 const unsigned char FPS = 60; // FPS of this game
 const unsigned int frameTime = 1000 / FPS; // time for each frame
 unsigned Application::m_width;
 unsigned Application::m_height;
+
+int sceneNumber;
+bool reset;
 
 //Define an error callback
 static void error_callback(int error, const char* description)
@@ -108,7 +112,7 @@ void Application::Init()
 void Application::Run()
 {
 	//Main Loop
-	Scene *scene = new Assignment2();
+	Scene *scene = new SceneT();
 	//Scene* scene1 = new SceneUI();
 	//Scene* scene2 = new Assignment2();
 	//Scene* scene = scene1;
@@ -119,6 +123,26 @@ void Application::Run()
 	m_timer.startTimer();    // Start timer to calculate how long it takes to render this frame
 	while (!glfwWindowShouldClose(m_window) && !IsKeyPressed(VK_ESCAPE))
 	{
+		if (sceneNumber == 0)
+		{
+			if (reset)
+			{
+				scene->Exit();
+				scene = new SceneT;
+				scene->Init();
+				reset = false;
+			}
+		}
+		if (sceneNumber == 1)
+		{
+			if (reset)
+			{
+				scene->Exit();
+				scene = new Assignment2;
+				scene->Init();
+				reset = false;
+			}
+		}
 		/*
 		if (IsKeyPressed(VK_F1))
 			scene = scene1;
@@ -165,4 +189,9 @@ int Application::GetWindowWidth()
 int Application::GetWindowHeight()
 {
 	return m_height;
+}
+void Application::ChangeScene(unsigned int wow, bool no)
+{
+	sceneNumber = wow;
+	reset = no;
 }
