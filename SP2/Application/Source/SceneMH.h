@@ -11,6 +11,8 @@
 #include "Light.h"
 #include "EntityMGR.h"
 #include "Player.h"
+#include <vector>
+#include <string>
 
 class SceneMH : public Scene
 {
@@ -37,7 +39,7 @@ class SceneMH : public Scene
 		GEO_TEXT,
 		GEO_TEXT1,
 		GEO_TEXT2,
-		GEO_MONEY,
+		GEO_SOUP,
 		NUM_GEOMETRY,
 	};
 
@@ -110,10 +112,13 @@ private:
 
 	EntityMGR EnMGR;
 	Player* PlayerEntity;
+	Entity* seat = nullptr;
 	//Camera3 camera2;
 
 	int currEvent = 0;
 	float EventLength = 0;
+
+	bool inMenus = false;
 
 	unsigned m_parameters[U_TOTAL];
 	unsigned m_vertexArrayID;
@@ -123,12 +128,22 @@ private:
 	//unsigned m_indexBuffer[NUM_GEOMETRY];
 	unsigned m_programID;
 
+	std::vector<Entity* [5]> tablesets;
+	int traySize = 0;
+
+	void InitTableSet(float x, float y, float z, int tablenum);
+
 	void RenderMesh(Mesh* mesh, bool enableLight);
 	void RenderSkybox();
+	void RenderWorld();
+	void RenderMenus();
 
 	void RenderText(Mesh* mesh, std::string text, Color color);
 	void RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y);
 	void RenderMeshOnScreen(Mesh* mesh, int x, int y, int sizex, int sizey);
+	void AddToTray(int UUID, int size);
+	void RenderTray();
+	void RenderFoodAtTable(Entity* entity, bool isForward);
 
 public:
 	SceneMH();
@@ -142,6 +157,8 @@ public:
 
 	void RenderTableSet(float x, float y, float z);
 	void RenderStallSet(float x, float y, float z, std::string text);
+	void RenderFood(double dt);
+
 };
 
 #endif

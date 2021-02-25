@@ -57,9 +57,7 @@ void EntityMGR::checkNearby(Entity* entity, float range, std::vector<Entity*> li
 	for (int i = 0; i < list.size(); i++) {
 		lengthchecker = sqrt((entity->pos.x - list[i]->pos.x) * (entity->pos.x - list[i]->pos.x) + (entity->pos.z - list[i]->pos.z) * (entity->pos.z - list[i]->pos.z));
 		if (lengthchecker < range && list[i]->name != entity->name) {
-			nearbyList.push_back(list[i]);
-			std::cout << list[i]->name << "is nearby!" << std::endl;
-			std::cout << list[i]->uHitbox[0] << list[i]->uHitbox[1] << std::endl;
+			nearbyList.push_back(list[i]); 
 		}
 	}
 }

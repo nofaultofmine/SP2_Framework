@@ -6,8 +6,8 @@ Player::Player(Vector3 pos, Vector3 target, Vector3 up, float radius) {
 	this->pos = pos;
 	this->name = "PlayerEntity";
 	if (radius != 0) {
-		dHitbox[0] = Vector3(radius, 0, radius); //dHitbox is the default hitbox of an entity and is automagically updated inside the EntityMGR if this entity is registered.
-		dHitbox[1] = Vector3(pos.x + radius, pos.y + radius, pos.z + radius);
+		dHitbox[0] = Vector3(-radius, -radius, -radius); //dHitbox is the default hitbox of an entity and is automagically updated inside the EntityMGR if this entity is registered.
+		dHitbox[1] = Vector3(radius, radius, radius);
 		this->isPoint = false;
 	}
 	else {

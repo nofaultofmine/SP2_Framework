@@ -8,8 +8,9 @@
 #include "LoadTGA.h"
 #include "LoadOBJ.h"
 #include <string>
+#include <sstream>
 
-//hi XinJie
+
 SceneMH::SceneMH()
 {
 }
@@ -54,6 +55,7 @@ void SceneMH::Init()
 	meshList[GEO_TABLE] = MeshBuilder::GenerateOBJMTL("Table", "OBJ//table.obj", "OBJ//table.mtl");
 
 	meshList[GEO_CHAIR] = MeshBuilder::GenerateOBJMTL("Chair", "OBJ//kopichair.obj", "OBJ//kopichair.mtl");
+	InitTableSet(1, 1, 1, 1);
 
 	meshList[GEO_BUILDING] = MeshBuilder::GenerateOBJMTL("Building", "OBJ//kopitiam.obj", "OBJ//kopitiam.mtl");
 
@@ -90,7 +92,7 @@ void SceneMH::Init()
 
 	meshList[GEO_TILE] = MeshBuilder::GenerateOBJMTL("tile", "OBJ//tile.obj", "OBJ//tile.mtl");
 
-	meshList[GEO_MONEY] = MeshBuilder::GenerateOBJMTL("Money!", "OBJ//money.obj", "OBJ//money.mtl");
+	meshList[GEO_SOUP] = MeshBuilder::GenerateOBJMTL("soup!", "OBJ//soup.obj", "OBJ//soup.mtl");
 		
 	meshList[GEO_LIGHTBALL] = MeshBuilder::GenerateSphere("sphere", Color(1,1,1), 18, 18, 1.0f);
 
@@ -240,17 +242,6 @@ void SceneMH::Reset()
 
 void SceneMH::Update(double dt)
 {
-	switch (currEvent) {
-	case 1:
-		EventLength += dt;
-		if (EventLength > 5) {
-			currEvent = 0;
-			EventLength = 0;
-		}
-		else if(Application::IsKeyPressed('F')){
-			currEvent = 2;
-		}
-	}
 	std::string temp = EnMGR.ACAR(PlayerEntity, 100, EnMGR.entityList);
 	PlayerEntity->Update(dt);
 	EnMGR.UpdateHitbox(PlayerEntity);
@@ -258,46 +249,185 @@ void SceneMH::Update(double dt)
 	if (temp != " ") {
 		PlayerEntity->returnToTemp();
 		if (temp == "Stall1") {
-			currEvent = 1;
+			if (currEvent == 0) {
+				currEvent = 1;
+			}
+		}
+		if (temp.substr(0, 4) == "chai") {
+			EnMGR.findEntity(temp);
+			seat = EnMGR.temp;
+			currEvent = 3;
 		}
 	}
-	std::cout << "playerentitypos :" << PlayerEntity->pos << "campos" << PlayerEntity->FPSCam->position << std::endl;
-	if (Application::IsKeyPressed(0x31))
-	{
-		glEnable(GL_CULL_FACE);
-	}
-	if (Application::IsKeyPressed(0x32))
-	{
-		glDisable(GL_CULL_FACE);
-	}
-	if (Application::IsKeyPressed(0x33))
-	{
-		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); //default fill mode
-	}
-	if (Application::IsKeyPressed(0x34))
-	{
-		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); //wireframe mode
-	}
+	std::cout << PlayerEntity->pos << std::endl;
+	if (!inMenus) {
+		if (Application::IsKeyPressed('E')) {
+			inMenus = true;
+		}
+		switch (currEvent) {
+		case 1:
+			EventLength += dt;
+			if (Application::IsKeyPressed('Q')) {
+				currEvent = 0;
+			}
+			if (Application::IsKeyPressed('F')) {
+				currEvent = 2;
+				EventLength = 0;
+			}
+			break;
+		case 2:
+			EventLength += dt;
+			if (EventLength > 2) {
+				if (Application::IsKeyPressed('F')) {
+					traySize += 1;
+					currEvent = 0;
+				}
+			}
+			break; 
+		case 3:
+			if (Application::IsKeyPressed('F')) {
+				currEvent = 4;
+			}
+			if (Application::IsKeyPressed('Q')) {
+				currEvent = 0;
+			}
+			break;
+		case 4:
+			PlayerEntity->pos = seat->pos;
+		}
+		
+		if (Application::IsKeyPressed(0x31))
+		{
+			glEnable(GL_CULL_FACE);
+		}
+		if (Application::IsKeyPressed(0x32))
+		{
+			glDisable(GL_CULL_FACE);
+		}
+		if (Application::IsKeyPressed(0x33))
+		{
+			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); //default fill mode
+		}
+		if (Application::IsKeyPressed(0x34))
+		{
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); //wireframe mode
+		}
 
-	if (Application::IsKeyPressed('B'))
-	{
-		light[0].power = 0;
-	}
-	if (Application::IsKeyPressed('V'))
-	{
-		light[0].power = 2;
-	}
+		if (Application::IsKeyPressed('B'))
+		{
+			light[0].power = 0;
+		}
+		if (Application::IsKeyPressed('V'))
+		{
+			light[0].power = 2;
+		}
 
-	glUniform1f(m_parameters[U_LIGHT0_POWER], light[0].power);
-	glUniform1i(m_parameters[U_LIGHT0_TYPE], light[0].type);
-	glUniform1f(m_parameters[U_LIGHT1_POWER], light[1].power);
-	glUniform1i(m_parameters[U_LIGHT1_TYPE], light[1].type);
-	glUniform1f(m_parameters[U_LIGHT2_POWER], light[2].power);
-	glUniform1i(m_parameters[U_LIGHT2_TYPE], light[2].type);
+		glUniform1f(m_parameters[U_LIGHT0_POWER], light[0].power);
+		glUniform1i(m_parameters[U_LIGHT0_TYPE], light[0].type);
+		glUniform1f(m_parameters[U_LIGHT1_POWER], light[1].power);
+		glUniform1i(m_parameters[U_LIGHT1_TYPE], light[1].type);
+		glUniform1f(m_parameters[U_LIGHT2_POWER], light[2].power);
+		glUniform1i(m_parameters[U_LIGHT2_TYPE], light[2].type);
+	}
+	else {
+		if (Application::IsKeyPressed('E')) {
+			inMenus = false;
+		}
+	}
+	
 }
 
 void SceneMH::Render()
 {
+	switch (inMenus) {
+	case false:
+		RenderWorld();
+		break;
+	case true:
+		RenderMenus();
+	}
+	
+}
+void SceneMH::RenderMenus() {
+	// Render VBO here
+	//Clear color buffer every frame
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//##############################
+
+	Mtx44 translate, rotate, scale;
+	Mtx44 model;
+	Mtx44 view;
+	Mtx44 projection;
+	Mtx44 MVP;
+
+	translate.SetToIdentity();
+	rotate.SetToIdentity();
+	scale.SetToIdentity();
+	model.SetToIdentity();
+
+	if (light[0].type == Light::LIGHT_DIRECTIONAL)
+	{
+		Vector3 lightDir(light[0].position.x, light[0].position.y, light[0].position.z);
+		Vector3 lightDirection_cameraspace = viewStack.Top() * lightDir;
+		glUniform3fv(m_parameters[U_LIGHT0_POSITION], 1, &lightDirection_cameraspace.x);
+	}
+	else if (light[0].type == Light::LIGHT_SPOT)
+	{
+		Position lightPosition_cameraspace = viewStack.Top() * light[0].position;
+		glUniform3fv(m_parameters[U_LIGHT0_POSITION], 1, &lightPosition_cameraspace.x);
+		Vector3 spotDirection_cameraspace = viewStack.Top() * light[0].spotDirection;
+		glUniform3fv(m_parameters[U_LIGHT0_SPOTDIRECTION], 1, &spotDirection_cameraspace.x);
+	}
+	else if (light[0].type == Light::LIGHT_POINT)
+	{
+		Position lightPosition_cameraspace = viewStack.Top() * light[0].position;
+		glUniform3fv(m_parameters[U_LIGHT0_POSITION], 1, &lightPosition_cameraspace.x);
+	}
+
+	if (light[1].type == Light::LIGHT_DIRECTIONAL)
+	{
+		Vector3 lightDir(light[1].position.x, light[1].position.y, light[1].position.z);
+		Vector3 lightDirection_cameraspace = viewStack.Top() * lightDir;
+		glUniform3fv(m_parameters[U_LIGHT1_POSITION], 1, &lightDirection_cameraspace.x);
+	}
+	else if (light[1].type == Light::LIGHT_SPOT)
+	{
+		Position lightPosition_cameraspace = viewStack.Top() * light[1].position;
+		glUniform3fv(m_parameters[U_LIGHT1_POSITION], 1, &lightPosition_cameraspace.x);
+		Vector3 spotDirection_cameraspace = viewStack.Top() * light[1].spotDirection;
+		glUniform3fv(m_parameters[U_LIGHT1_SPOTDIRECTION], 1, &spotDirection_cameraspace.x);
+	}
+	else if (light[1].type == Light::LIGHT_POINT)
+	{
+		Position lightPosition_cameraspace = viewStack.Top() * light[1].position;
+		glUniform3fv(m_parameters[U_LIGHT1_POSITION], 1, &lightPosition_cameraspace.x);
+	}
+
+	if (light[2].type == Light::LIGHT_DIRECTIONAL)
+	{
+		Vector3 lightDir(light[2].position.x, light[2].position.y, light[2].position.z);
+		Vector3 lightDirection_cameraspace = viewStack.Top() * lightDir;
+		glUniform3fv(m_parameters[U_LIGHT2_POSITION], 1, &lightDirection_cameraspace.x);
+	}
+	else if (light[2].type == Light::LIGHT_SPOT)
+	{
+		Position lightPosition_cameraspace = viewStack.Top() * light[2].position;
+		glUniform3fv(m_parameters[U_LIGHT2_POSITION], 1, &lightPosition_cameraspace.x);
+		Vector3 spotDirection_cameraspace = viewStack.Top() * light[2].spotDirection;
+		glUniform3fv(m_parameters[U_LIGHT2_SPOTDIRECTION], 1, &spotDirection_cameraspace.x);
+	}
+	else if (light[2].type == Light::LIGHT_POINT)
+	{
+		Position lightPosition_cameraspace = viewStack.Top() * light[2].position;
+		glUniform3fv(m_parameters[U_LIGHT2_POSITION], 1, &lightPosition_cameraspace.x);
+	}
+
+	viewStack.LoadIdentity();
+	viewStack.LookAt(PlayerEntity->FPSCam->position.x, PlayerEntity->FPSCam->position.y, PlayerEntity->FPSCam->position.z, PlayerEntity->FPSCam->target.x, PlayerEntity->FPSCam->target.y, PlayerEntity->FPSCam->target.z, PlayerEntity->FPSCam->up.x, PlayerEntity->FPSCam->up.y, PlayerEntity->FPSCam->up.z);
+	modelStack.LoadIdentity();
+}
+
+void SceneMH::RenderWorld() {
 	// Render VBO here
 	//Clear color buffer every frame
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -391,13 +521,31 @@ void SceneMH::Render()
 			RenderTableSet(40 * x, 0, 40 * z);
 		}
 	}
-	
-	RenderStallSet(0, 0, 0, "SOUP");
 
-	if(Application::IsKeyPressed('E'))
+	RenderStallSet(0, 0, 0, "I'm at Soup!");
+
+	if (Application::IsKeyPressed('E'))
 		RenderTextOnScreen(meshList[GEO_TEXT], "", Color(0, 1, 0), 4, 0, 0);
 	else
 		RenderTextOnScreen(meshList[GEO_TEXT], "", Color(0, 1, 0), 4, 0, 0);
+
+	switch (currEvent) {
+	case 0:
+		RenderTextOnScreen(meshList[GEO_TEXT], "Settle UI things here.", Color(0, 1, 0), 4, 0, 0);
+		break;
+	case 1:
+		RenderTextOnScreen(meshList[GEO_TEXT], "Buy some soup?", Color(1, 1, 1), 4, 20, 30);
+		break;
+	case 2:
+		RenderTextOnScreen(meshList[GEO_TEXT], "Soup is being dispensed.", Color(1, 1, 1), 4, 20, 30);
+		RenderFood(EventLength);
+		break;
+	case 3:
+		RenderTextOnScreen(meshList[GEO_TEXT], "Take a seat here?.", Color(1, 1, 1), 4, 20, 30);
+		break;
+	case 4:
+		RenderFoodAtTable(seat, false);
+	}
 }
 
 void SceneMH::Exit()
@@ -519,7 +667,7 @@ void SceneMH::RenderText(Mesh* mesh, std::string text, Color color)
 	for (unsigned i = 0; i < text.length(); ++i)
 	{
 		Mtx44 characterSpacing;
-		characterSpacing.SetToTranslation(i * 1.0f, 0, 0); //1.0f is the spacing of each character, you may change this value
+		characterSpacing.SetToTranslation(i * 0.7f, 0, 0); //1.0f is the spacing of each character, you may change this value
 		Mtx44 MVP = projectionStack.Top() * viewStack.Top() * modelStack.Top() * characterSpacing;
 		glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE, &MVP.a[0]);
 		mesh->Render((unsigned)text[i] * 6, 6);
@@ -588,6 +736,24 @@ void SceneMH::RenderMeshOnScreen(Mesh* mesh, int x, int y, int sizex, int sizey)
 	glEnable(GL_DEPTH_TEST);
 }
 
+void SceneMH::InitTableSet(float x, float y, float z, int tablenum) {
+	std::string temp;
+	std::stringstream ss;
+	
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 2; j++) {
+			ss.clear();
+			ss << "chair" << (i + j) << tablenum;
+			ss >> temp;
+			EnMGR.CreateAABB(temp, Vector3(x - 6 + 12 * i, y, z - 12 + 24 *j), Vector3(-2.5, 0, -2.5), Vector3(2.5, 20, 2.5));
+		}
+	}
+	ss.clear();
+	ss << "table" << tablenum;
+	ss >> temp;
+	EnMGR.CreateAABB(temp, Vector3(x,y,z), Vector3(0,0,0), Vector3(1,1,1));
+}
+
 void SceneMH::RenderTableSet(float x, float y, float z) {
 	modelStack.PushMatrix();
 	modelStack.Translate(x, y, z);
@@ -637,11 +803,39 @@ void SceneMH::RenderStallSet(float x, float y, float z, std::string text) {
 		modelStack.Scale(12, 12, 12);
 		RenderMesh(meshList[GEO_STALL], true);
 		modelStack.PopMatrix();
-		
+
 		modelStack.PushMatrix();
-		modelStack.Translate(-13, 10, -53);
-		modelStack.Scale(3, 3, 3);
+		modelStack.Translate(-13, 20, -55);
+		modelStack.Scale(4, 4, 4);
 		RenderText(meshList[GEO_TEXT], text, Color(1, 1, 1));
 		modelStack.PopMatrix();
 	modelStack.PopMatrix();
+}
+
+void SceneMH::RenderFood(double dt) {
+	float movement = dt * 10;
+	if (movement > 20) {
+		movement = 20;
+	}
+	modelStack.PushMatrix();
+	modelStack.Translate(10, 5, -72.5+movement);
+	RenderMesh(meshList[GEO_SOUP], true);
+	modelStack.PopMatrix();
+}
+
+void SceneMH::RenderFoodAtTable(Entity* entity, bool isForward) {
+	for (int i = 0; i < traySize; i++) {
+		modelStack.PushMatrix();
+		modelStack.Translate(entity->pos.x, 20, entity->pos.z + 5);
+		RenderMesh(meshList[GEO_SOUP], true);
+		modelStack.PopMatrix();
+	}
+}
+
+void SceneMH::AddToTray(int UUID, int size) {
+
+}
+
+void SceneMH::RenderTray() {
+
 }

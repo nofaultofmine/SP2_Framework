@@ -36,6 +36,10 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 		glfwSetWindowShouldClose(window, GL_TRUE);
 }
 
+void Application::MouseControl() {
+	/*if()*/
+}
+
 void resize_callback(GLFWwindow* window, int w, int h)
 {
 	Application::m_width = w;
