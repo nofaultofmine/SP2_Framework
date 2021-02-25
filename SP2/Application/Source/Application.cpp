@@ -12,15 +12,16 @@
 #include <stdlib.h>
 #include "Scene.h"
 #include "Assignment2.h"
-#include "SceneYX.h"
-#include "SceneMH.h"
-#include "SceneXJ.h"
+#include "SceneT.h"
 
 GLFWwindow* m_window;
 const unsigned char FPS = 60; // FPS of this game
 const unsigned int frameTime = 1000 / FPS; // time for each frame
 unsigned Application::m_width;
 unsigned Application::m_height;
+
+int sceneNumber;
+bool reset;
 
 //Define an error callback
 static void error_callback(int error, const char* description)
@@ -111,6 +112,7 @@ void Application::Init()
 void Application::Run()
 {
 	//Main Loop
+<<<<<<< HEAD
 	Scene *scene = new SceneXJ();
 	Scene* scene1 = new SceneMH();
 	Scene* scene2 = new Assignment2();
@@ -120,18 +122,51 @@ void Application::Run()
 	scene1->Init();
 	scene2->Init();
 	scene3->Init();
+=======
+	Scene *scene = new SceneT();
+	//Scene* scene1 = new SceneUI();
+	//Scene* scene2 = new Assignment2();
+	//Scene* scene = scene1;
+	scene->Init();
+	//scene1->Init();
+	//scene2->Init();
+>>>>>>> 4d8a585361a9a8b42b8db6750bd804566d06db63
 
 	m_timer.startTimer();    // Start timer to calculate how long it takes to render this frame
 	while (!glfwWindowShouldClose(m_window) && !IsKeyPressed(VK_ESCAPE))
 	{
-		
+		if (sceneNumber == 0)
+		{
+			if (reset)
+			{
+				scene->Exit();
+				scene = new SceneT;
+				scene->Init();
+				reset = false;
+			}
+		}
+		if (sceneNumber == 1)
+		{
+			if (reset)
+			{
+				scene->Exit();
+				scene = new Assignment2;
+				scene->Init();
+				reset = false;
+			}
+		}
+		/*
 		if (IsKeyPressed(VK_F1))
 			scene = scene1;
 		else if (IsKeyPressed(VK_F2))
 			scene = scene2;
+<<<<<<< HEAD
 		else if (IsKeyPressed(VK_F2))
 			scene = scene3;
 		
+=======
+		*/
+>>>>>>> 4d8a585361a9a8b42b8db6750bd804566d06db63
 		scene->Update(m_timer.getElapsedTime());
 		scene->Render();
 		//Swap buffers
@@ -172,4 +207,9 @@ int Application::GetWindowWidth()
 int Application::GetWindowHeight()
 {
 	return m_height;
+}
+void Application::ChangeScene(unsigned int wow, bool no)
+{
+	sceneNumber = wow;
+	reset = no;
 }

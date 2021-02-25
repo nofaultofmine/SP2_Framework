@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  SceneXJ.cpp
 C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(380,30): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
 C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(399,19): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
@@ -7,3 +8,6 @@ C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(8
 C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(888,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(889,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\65861\source\repos\SP2_Framework_4\SP2\Application\Source\SceneXJ.cpp(889,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+=======
+﻿  Application.vcxproj -> C:\Users\TiFfa\source\repos\nofaultofmine\SP2_Framework\SP2\Release\Application.exe
+>>>>>>> 4d8a585361a9a8b42b8db6750bd804566d06db63
