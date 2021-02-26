@@ -90,7 +90,7 @@ void SceneYX::Init()
 	meshList[GEO_QUAD]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
 	meshList[GEO_QUAD]->material.kShininess = 0.2f;
 
-	meshList[GEO_BOX] = MeshBuilder::GenerateCube("reference", Color(0, 1, 0), 1);
+	meshList[GEO_BOX] = MeshBuilder::GenerateCube("reference", 1.0f, 1.0f, 1.0f, Color(0, 1, 0));
 
 	meshList[GEO_LIGHTBALL] = MeshBuilder::GenerateSphere("sphere", Color(1,1,1), 18, 18, 1.0f);
 
@@ -103,8 +103,8 @@ void SceneYX::Init()
 
 	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1500, 1500, 1500);
 
-	meshList[GEO_NAV_SPIRE] = MeshBuilder::GenerateCube("SatNAv Spire", Color(0,1,0), 1);
-	meshList[GEO_NAV_TAXI] = MeshBuilder::GenerateCube("taxi company spire", Color(1, 1, 0), 1);
+	meshList[GEO_NAV_SPIRE] = MeshBuilder::GenerateCube("SatNAv Spire", 1.0f, 1.0f, 1.0f, Color(0,1,0));
+	meshList[GEO_NAV_TAXI] = MeshBuilder::GenerateCube("taxi company spire", 1.0f, 1.0f, 1.0f, Color(1, 1, 0));
 
 	// Road
 	meshList[GEO_ROAD] = MeshBuilder::GenerateOBJMTL("Taxi", "OBJ//road_straight.obj", "OBJ//road_straight.mtl");
@@ -112,7 +112,7 @@ void SceneYX::Init()
 	// Hover Taxi
 	meshList[GEO_TAXI] = MeshBuilder::GenerateOBJMTL("Taxi", "OBJ//taxi.obj", "OBJ//taxi.mtl");
 	//meshList[GEO_TAXI] = MeshBuilder::GenerateOBJ("Taxi", "OBJ//mall.obj");
-	meshList[GEO_HOVER] = MeshBuilder::GenerateCube("Hoverpad", Color(0.5, 0.5, 0.5), 1.0f);
+	meshList[GEO_HOVER] = MeshBuilder::GenerateCube("Hoverpad", 1.0f, 1.0f, 1.0f, Color(0.5, 0.5, 0.5));
 	meshList[GEO_HOVER]->material.kAmbient.Set(0.1f, 0.1f, 0.1f);
 	meshList[GEO_HOVER]->material.kDiffuse.Set(0.3f, 0.3f, 0.3f);
 	meshList[GEO_HOVER]->material.kSpecular.Set(0.2f, 0.2f, 0.2f);
@@ -120,7 +120,7 @@ void SceneYX::Init()
 
 	// Taxi Company
 	meshList[GEO_TAXI_COMPANY] = MeshBuilder::GenerateOBJMTL("TAXI COMPANY", "OBJ//taxicompany.obj", "OBJ//taxicompany.mtl");
-	meshList[GEO_TAXI_PAD] = MeshBuilder::GenerateCube("Taxi Parking lot", Color(1, 1, 0.75), 1.0f);
+	meshList[GEO_TAXI_PAD] = MeshBuilder::GenerateCube("Taxi Parking lot", 1.0f, 1.0f, 1.0f, Color(1, 1, 0.75));
 	meshList[GEO_TAXI_PAD]->material.kAmbient.Set(0.5f, 0.5f, 0.5f);
 	meshList[GEO_TAXI_PAD]->material.kDiffuse.Set(1, 1, 1);
 	meshList[GEO_TAXI_PAD]->material.kSpecular.Set(0.2f, 0.2f, 0.2f);
@@ -131,20 +131,20 @@ void SceneYX::Init()
 	meshList[GEO_ROBOT]->textureID = LoadTGA("Image//CyborgTaxi.tga");
 
 	// Passenger Pads and Spires
-	meshList[GEO_PASSENGERS_PAD_1] = MeshBuilder::GenerateCube("GEO_PASSENGERS_PAD_1", Color(1, 0.75, 0.75), 1.0f);
-	meshList[GEO_PASSENGERS_SPIRE_1] = MeshBuilder::GenerateCube("GEO_PASSENGERS_SPIRE_1", Color(1, 0, 0), 1.0f);
+	meshList[GEO_PASSENGERS_PAD_1] = MeshBuilder::GenerateCube("GEO_PASSENGERS_PAD_1", 1.0f, 1.0f, 1.0f, Color(1, 0.75, 0.75));
+	meshList[GEO_PASSENGERS_SPIRE_1] = MeshBuilder::GenerateCube("GEO_PASSENGERS_SPIRE_1", 1.0f, 1.0f, 1.0f, Color(1, 0, 0));
 
-	meshList[GEO_PASSENGERS_PAD_2] = MeshBuilder::GenerateCube("GEO_PASSENGERS_PAD_2", Color(1, 0.75, 0.75), 1.0f);
-	meshList[GEO_PASSENGERS_SPIRE_2] = MeshBuilder::GenerateCube("GEO_PASSENGERS_SPIRE_2", Color(1, 0, 0), 1.0f);
+	meshList[GEO_PASSENGERS_PAD_2] = MeshBuilder::GenerateCube("GEO_PASSENGERS_PAD_2", 1.0f, 1.0f, 1.0f, Color(1, 0.75, 0.75));
+	meshList[GEO_PASSENGERS_SPIRE_2] = MeshBuilder::GenerateCube("GEO_PASSENGERS_SPIRE_2", 1.0f, 1.0f, 1.0f, Color(1, 0, 0));
 
-	meshList[GEO_PASSENGERS_PAD_3] = MeshBuilder::GenerateCube("GEO_PASSENGERS_PAD_3", Color(1, 0.75, 0.75), 1.0f);
-	meshList[GEO_PASSENGERS_SPIRE_3] = MeshBuilder::GenerateCube("GEO_PASSENGERS_SPIRE_3", Color(1, 0, 0), 1.0f);
+	meshList[GEO_PASSENGERS_PAD_3] = MeshBuilder::GenerateCube("GEO_PASSENGERS_PAD_3", 1.0f, 1.0f, 1.0f, Color(1, 0.75, 0.75));
+	meshList[GEO_PASSENGERS_SPIRE_3] = MeshBuilder::GenerateCube("GEO_PASSENGERS_SPIRE_3", 1.0f, 1.0f, 1.0f, Color(1, 0, 0));
 
-	meshList[GEO_PASSENGERS_PAD_4] = MeshBuilder::GenerateCube("GEO_PASSENGERS_PAD_4", Color(1, 0.75, 0.75), 1.0f);
-	meshList[GEO_PASSENGERS_SPIRE_4] = MeshBuilder::GenerateCube("GEO_PASSENGERS_SPIRE_4", Color(1, 0, 0), 1.0f);
+	meshList[GEO_PASSENGERS_PAD_4] = MeshBuilder::GenerateCube("GEO_PASSENGERS_PAD_4", 1.0f, 1.0f, 1.0f, Color(1, 0.75, 0.75));
+	meshList[GEO_PASSENGERS_SPIRE_4] = MeshBuilder::GenerateCube("GEO_PASSENGERS_SPIRE_4", 1.0f, 1.0f, 1.0f, Color(1, 0, 0));
 
-	meshList[GEO_PASSENGERS_PAD_5] = MeshBuilder::GenerateCube("GEO_PASSENGERS_PAD_5", Color(1, 0.75, 0.75), 1.0f);
-	meshList[GEO_PASSENGERS_SPIRE_5] = MeshBuilder::GenerateCube("GEO_PASSENGERS_SPIRE_5", Color(1, 0, 0), 1.0f);
+	meshList[GEO_PASSENGERS_PAD_5] = MeshBuilder::GenerateCube("GEO_PASSENGERS_PAD_5", 1.0f, 1.0f, 1.0f, Color(1, 0.75, 0.75));
+	meshList[GEO_PASSENGERS_SPIRE_5] = MeshBuilder::GenerateCube("GEO_PASSENGERS_SPIRE_5", 1.0f, 1.0f, 1.0f, Color(1, 0, 0));
 
 
 	// Passenger Models
@@ -174,7 +174,7 @@ void SceneYX::Init()
 	// Residential Buildings
 	meshList[GEO_FLAT1] = MeshBuilder::GenerateOBJMTL("Flat_1", "OBJ//Residential Buildings 006.obj", "OBJ//Residential Buildings 006.mtl");
 
-	meshList[GEO_FLAT_PAD] = MeshBuilder::GenerateCube("Flat pad", Color(0.75, 1, 0.75), 1.0f);
+	meshList[GEO_FLAT_PAD] = MeshBuilder::GenerateCube("Flat pad", 1.0f, 1.0f, 1.0f, Color(0.75, 1, 0.75));
 	meshList[GEO_FLAT_PAD]->material.kAmbient.Set(0.5f, 0.5f, 0.5f);
 	meshList[GEO_FLAT_PAD]->material.kDiffuse.Set(1.0f, 1.0f, 1.0f);
 	meshList[GEO_FLAT_PAD]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
@@ -183,19 +183,19 @@ void SceneYX::Init()
 	// Mall
 
 	//meshList[GEO_MALL] = MeshBuilder::GenerateOBJMTL("MAll", "OBJ//plaza.obj", "OBJ//plaza.mtl");
-	meshList[GEO_MALL] = MeshBuilder::GenerateCube("Placeholder Mall", Color(0.9, 0.9, 0.9), 1.0f);
+	meshList[GEO_MALL] = MeshBuilder::GenerateCube("Placeholder Mall", 1.0f, 1.0f, 1.0f, Color(0.9, 0.9, 0.9));
 	meshList[GEO_MALL]->material.kAmbient.Set(0.9f, 0.9f, 0.9f);
 	meshList[GEO_MALL]->material.kDiffuse.Set(1.0f, 1.0f, 1.0f);
 	meshList[GEO_MALL]->material.kSpecular.Set(0.8f, 0.8f, 0.8f);
 	meshList[GEO_MALL]->material.kShininess = 1.f;
 
-	meshList[GEO_MALL_SIGN] = MeshBuilder::GenerateCube("Placeholder Mall Sign", Color(0,1,0), 1.0f);
+	meshList[GEO_MALL_SIGN] = MeshBuilder::GenerateCube("Placeholder Mall Sign", 1.0f, 1.0f, 1.0f, Color(0,1,0));
 	meshList[GEO_MALL_SIGN]->material.kAmbient.Set(0.5f, 0.5f, 0.5f);
 	meshList[GEO_MALL_SIGN]->material.kDiffuse.Set(1.0f, 1.0f, 1.0f);
 	meshList[GEO_MALL_SIGN]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
 	meshList[GEO_MALL_SIGN]->material.kShininess = 1.f;
 
-	meshList[GEO_MALL_PAD] = MeshBuilder::GenerateCube("Placeholder Mall Pad", Color(0.75, 1, 0.75), 1.0f);
+	meshList[GEO_MALL_PAD] = MeshBuilder::GenerateCube("Placeholder Mall Pad", 1.0f, 1.0f, 1.0f, Color(0.75, 1, 0.75));
 
 	// Park
 	//meshList[GEO_TREE1] = MeshBuilder::GenerateOBJMTL("Tree 1", "OBJ//tree_pineTallA_detailed.obj", "OBJ//tree_pineTallA_detailed.mtl");
@@ -203,11 +203,11 @@ void SceneYX::Init()
 	//meshList[GEO_TREE3] = MeshBuilder::GenerateOBJMTL("Tree 3", "OBJ//tree_pineTallC_detailed.obj", "OBJ//tree_pineTallC_detailed.mtl");
 	//meshList[GEO_TREE4] = MeshBuilder::GenerateOBJMTL("Tree 4", "OBJ//tree_pineTallD_detailed.obj", "OBJ//tree_pineTallD_detailed.mtl");
 
-	meshList[GEO_PARK_PAD] = MeshBuilder::GenerateCube("Park Landing platform", Color(0, 0.25f, 0), 1.0f);
+	meshList[GEO_PARK_PAD] = MeshBuilder::GenerateCube("Park Landing platform", 1.0f, 1.0f, 1.0f, Color(0, 0.25f, 0));
 
 	// Business scifi buildings
 	meshList[GEO_SCIFI_1] = MeshBuilder::GenerateOBJMTL("Scifi_1", "OBJ//building1.obj", "OBJ//building1.mtl");
-	meshList[GEO_SCIFI_PLATFORM] = MeshBuilder::GenerateCube("Hover Platform", Color(0.75, 1, 0.75), 1);
+	meshList[GEO_SCIFI_PLATFORM] = MeshBuilder::GenerateCube("Hover Platform", 1.0f, 1.0f, 1.0f, Color(0.75, 1, 0.75));
 	meshList[GEO_SCIFI_PLATFORM]->material.kAmbient.Set(0.5f, 0.5f, 0.5f);
 	meshList[GEO_SCIFI_PLATFORM]->material.kDiffuse.Set(1.0f, 1.0f, 1.0f);
 	meshList[GEO_SCIFI_PLATFORM]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
@@ -220,19 +220,19 @@ void SceneYX::Init()
 	meshList[GEO_SCIFI_6] = MeshBuilder::GenerateOBJMTL("Scifi_6", "OBJ//building6.obj", "OBJ//building6.mtl");
 	meshList[GEO_SCIFI_7] = MeshBuilder::GenerateOBJMTL("Scifi_7", "OBJ//building7.obj", "OBJ//building7.mtl");
 	// Hospital
-	meshList[GEO_HOSPITAL] = MeshBuilder::GenerateCube("Placeholder Hospital", Color(1, 1, 1), 1.0f);
+	meshList[GEO_HOSPITAL] = MeshBuilder::GenerateCube("Placeholder Hospital", 1.0f, 1.0f, 1.0f, Color(1, 1, 1));
 	meshList[GEO_HOSPITAL]->material.kAmbient.Set(0.5f, 0.5f, 0.5f);
 	meshList[GEO_HOSPITAL]->material.kDiffuse.Set(1.0f, 1.0f, 1.0f);
 	meshList[GEO_HOSPITAL]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
 	meshList[GEO_HOSPITAL]->material.kShininess = 1.f;
 
-	meshList[GEO_RED_CROSS] = MeshBuilder::GenerateCube("Placeholder Cross", Color(1, 0, 0), 1.0f);
+	meshList[GEO_RED_CROSS] = MeshBuilder::GenerateCube("Placeholder Cross", 1.0f, 1.0f, 1.0f, Color(1, 0, 0));
 	meshList[GEO_RED_CROSS]->material.kAmbient.Set(0.5f, 0.5f, 0.5f);
 	meshList[GEO_RED_CROSS]->material.kDiffuse.Set(1.0f, 1.0f, 1.0f);
 	meshList[GEO_RED_CROSS]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
 	meshList[GEO_RED_CROSS]->material.kShininess = 1.f;
 
-	meshList[GEO_HOSPITAL_PAD] = MeshBuilder::GenerateCube("Landing pad hospital", Color(0.75, 1, 0.75), 1.0f);
+	meshList[GEO_HOSPITAL_PAD] = MeshBuilder::GenerateCube("Landing pad hospital", 1.0f, 1.0f, 1.0f, Color(0.75, 1, 0.75));
 	meshList[GEO_HOSPITAL_PAD]->material.kAmbient.Set(0.5f, 0.5f, 0.5f);
 	meshList[GEO_HOSPITAL_PAD]->material.kDiffuse.Set(1.0f, 1.0f, 1.0f);
 	meshList[GEO_HOSPITAL_PAD]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);

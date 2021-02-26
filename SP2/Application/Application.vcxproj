@@ -150,6 +150,7 @@
     <ClCompile Include="Source\Camera.cpp" />
     <ClCompile Include="Source\Camera2.cpp" />
     <ClCompile Include="Source\Camera3.cpp" />
+    <ClCompile Include="Source\CameraYX.cpp" />
     <ClCompile Include="Source\CollisionHandler.cpp" />
     <ClCompile Include="Source\EntityMGR.cpp" />
     <ClCompile Include="Source\LoadOBJ.cpp" />
@@ -160,6 +161,7 @@
     <ClCompile Include="Source\Player.cpp" />
     <ClCompile Include="Source\SceneMH.cpp" />
     <ClCompile Include="Source\SceneXJ.cpp" />
+    <ClCompile Include="Source\SceneYX.cpp" />
     <ClCompile Include="Source\shader.cpp" />
     <ClCompile Include="Source\Utility.cpp" />
   </ItemGroup>
@@ -169,6 +171,7 @@
     <ClInclude Include="Source\Camera.h" />
     <ClInclude Include="Source\Camera2.h" />
     <ClInclude Include="Source\Camera3.h" />
+    <ClInclude Include="Source\CameraYX.h" />
     <ClInclude Include="Source\CollisionHandler.h" />
     <ClInclude Include="Source\Entity.h" />
     <ClInclude Include="Source\EntityMGR.h" />
@@ -182,6 +185,7 @@
     <ClInclude Include="Source\Scene.h" />
     <ClInclude Include="Source\SceneMH.h" />
     <ClInclude Include="Source\SceneXJ.h" />
+    <ClInclude Include="Source\SceneYX.h" />
     <ClInclude Include="Source\shader.hpp" />
     <ClInclude Include="Source\Utility.h" />
     <ClInclude Include="Source\Vertex.h" />
