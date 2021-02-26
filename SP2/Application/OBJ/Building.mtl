@@ -1,0 +1,10 @@
+newmtl objMesh Merged Material
+Ka 1.000000 1.000000 1.000000
+Kd 0.197118 0.197118 0.197118
+Ks 0.500000 0.500000 0.500000
+Ns 17.647060
+d 1.000000
+Tr 0.000000
+map_Kd objMesh Merged Diffuse Texture.TGA 
+adobe_map_Shininess objMesh Merged Shininess Texture.TGA 
+
