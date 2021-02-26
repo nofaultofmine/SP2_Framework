@@ -127,8 +127,8 @@ void SceneYX::Init()
 	meshList[GEO_TAXI_PAD]->material.kShininess = 1.0f;
 
 	// Taxi helper bot
-	meshList[GEO_ROBOT] = MeshBuilder::GenerateOBJMTL("Helper Bot", "OBJ//CyborgTaxi.obj", "OBJ//CyborgTaxi.mtl");
-	meshList[GEO_ROBOT]->textureID = LoadTGA("Image//CyborgTaxi.tga");
+	//meshList[GEO_ROBOT] = MeshBuilder::GenerateOBJMTL("Helper Bot", "OBJ//CyborgTaxi.obj", "OBJ//CyborgTaxi.mtl");
+	//meshList[GEO_ROBOT]->textureID = LoadTGA("Image//CyborgTaxi.tga");
 
 	// Passenger Pads and Spires
 	meshList[GEO_PASSENGERS_PAD_1] = MeshBuilder::GenerateCube("GEO_PASSENGERS_PAD_1", 1.0f, 1.0f, 1.0f, Color(1, 0.75, 0.75));
@@ -146,9 +146,8 @@ void SceneYX::Init()
 	meshList[GEO_PASSENGERS_PAD_5] = MeshBuilder::GenerateCube("GEO_PASSENGERS_PAD_5", 1.0f, 1.0f, 1.0f, Color(1, 0.75, 0.75));
 	meshList[GEO_PASSENGERS_SPIRE_5] = MeshBuilder::GenerateCube("GEO_PASSENGERS_SPIRE_5", 1.0f, 1.0f, 1.0f, Color(1, 0, 0));
 
-
 	// Passenger Models
-	meshList[GEO_PASSENGERS_MALE_1] = MeshBuilder::GenerateOBJMTL("Male Passenger", "OBJ//Male_Standing.obj", "OBJ//Male_Standing.mtl");
+	/*meshList[GEO_PASSENGERS_MALE_1] = MeshBuilder::GenerateOBJMTL("Male Passenger", "OBJ//Male_Standing.obj", "OBJ//Male_Standing.mtl");
 	meshList[GEO_PASSENGERS_MALE_2] = MeshBuilder::GenerateOBJMTL("Male Passenger", "OBJ//Male_Standing_CoveringEyes.obj", "OBJ//Male_Standing_CoveringEyes.mtl");
 	meshList[GEO_PASSENGERS_MALE_3] = MeshBuilder::GenerateOBJMTL("Male Passenger", "OBJ//Male_Standing_Hips.obj", "OBJ//Male_Standing_Hips.mtl");
 	meshList[GEO_PASSENGERS_MALE_4] = MeshBuilder::GenerateOBJMTL("Male Passenger", "OBJ//Male_Standing_Waving.obj", "OBJ//Male_Standing_Waving.mtl");
@@ -168,7 +167,7 @@ void SceneYX::Init()
 	meshList[GEO_PASSENGERS_FEMALE_HAIR_1] = MeshBuilder::GenerateOBJMTL("Female Passenger Hair", "OBJ//Female_Hairstyle_1.obj", "OBJ//Female_Hairstyle_1.mtl");
 	meshList[GEO_PASSENGERS_FEMALE_HAIR_2] = MeshBuilder::GenerateOBJMTL("Female Passenger Hair", "OBJ//Female_Hairstyle_2.obj", "OBJ//Female_Hairstyle_2.mtl");
 	meshList[GEO_PASSENGERS_FEMALE_HAIR_3] = MeshBuilder::GenerateOBJMTL("Female Passenger Hair", "OBJ//Female_Hairstyle_3.obj", "OBJ//Female_Hairstyle_3.mtl");
-	meshList[GEO_PASSENGERS_FEMALE_HAIR_4] = MeshBuilder::GenerateOBJMTL("Female Passenger Hair", "OBJ//Female_Hairstyle_4.obj", "OBJ//Female_Hairstyle_4.mtl");
+	meshList[GEO_PASSENGERS_FEMALE_HAIR_4] = MeshBuilder::GenerateOBJMTL("Female Passenger Hair", "OBJ//Female_Hairstyle_4.obj", "OBJ//Female_Hairstyle_4.mtl");*/
 
 
 	// Residential Buildings

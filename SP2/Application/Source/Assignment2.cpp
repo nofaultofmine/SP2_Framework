@@ -202,7 +202,7 @@ void Assignment2::Init()
 
 	//Link Meshes
 	{
-		meshList[GEO_CUBE] = MeshBuilder::GenerateCube("BeltBuckle", Color(1, 1, 0), 1);
+		meshList[GEO_CUBE] = MeshBuilder::GenerateCube("BeltBuckle", 1, 1, 1, Color(1, 1, 0));
 		meshList[GEO_CUBE]->material.kAmbient.Set(0.5f, 0.5f, 0.5f);
 		meshList[GEO_CUBE]->material.kDiffuse.Set(0.6f, 0.6f, 0.6f);
 		meshList[GEO_CUBE]->material.kSpecular.Set(0.3f, 0.3f, 0.3f);
@@ -214,7 +214,7 @@ void Assignment2::Init()
 		meshList[GEO_RING]->material.kSpecular.Set(0.3f, 0.3f, 0.3f);
 		meshList[GEO_RING]->material.kShininess = 5.f;
 
-		meshList[GEO_SWORDBASE] = MeshBuilder::GenerateCube("Sword Base", Color(0, 0, 1), 1);
+		meshList[GEO_SWORDBASE] = MeshBuilder::GenerateCube("Sword Base", 1, 1, 1, Color(0, 0, 1));
 		meshList[GEO_SWORDBASE]->material.kAmbient.Set(0.5f, 0.5f, 0.5f);
 		meshList[GEO_SWORDBASE]->material.kDiffuse.Set(0.6f, 0.6f, 0.6f);
 		meshList[GEO_SWORDBASE]->material.kSpecular.Set(0.3f, 0.3f, 0.3f);
