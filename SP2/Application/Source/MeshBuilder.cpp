@@ -141,68 +141,108 @@ Then generate the VBO/IBO and store them in Mesh object
 \return Pointer to mesh storing VBO/IBO of cube
 */
 /******************************************************************************/
-Mesh* MeshBuilder::GenerateCube(const std::string& meshName, Color color, float size)
+Mesh* MeshBuilder::GenerateCube(const std::string& meshName, float lengthX, float lengthY, float lengthZ, Color color)
 {
 	Vertex v;
+
+	v.color = color;
+
 	std::vector<Vertex> vertex_buffer_data;
 	std::vector<unsigned> index_buffer_data;
-	//Front of cube
-	v.pos.Set(0.5f * size, 0.5f * size, 0.5f); v.color = color; v.normal.Set(0, 0, 1);  vertex_buffer_data.push_back(v);
-	v.pos.Set(-0.5f * size, 0.5f * size, 0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(-0.5f * size, -0.5f * size, 0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(0.5f * size, 0.5f * size, 0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(-0.5f * size, -0.5f * size, 0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(0.5f * size, -0.5f * size, 0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	//Back of cube
-	v.pos.Set(0.5f * size, 0.5f * size, -0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(-0.5f * size, 0.5f * size, -0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(-0.5f * size, -0.5f * size, -0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(0.5f * size, 0.5f * size, -0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(-0.5f * size, -0.5f * size, -0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(0.5f * size, -0.5f * size, -0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	//Top of cube
-	v.pos.Set(0.5f * size, 0.5f * size, 0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(-0.5f * size, 0.5f * size, -0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(-0.5f * size, 0.5f * size, 0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(-0.5f * size, 0.5f * size, -0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(0.5f * size, 0.5f * size, 0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(0.5f * size, 0.5f * size, -0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	//Bottom of cube
-	v.pos.Set(0.5f * size, -0.5f * size, 0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(-0.5f * size, -0.5f * size, -0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(-0.5f * size, -0.5f * size, 0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(-0.5f * size, -0.5f * size, -0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(0.5f * size, -0.5f * size, 0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(0.5f * size, -0.5f * size, -0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	//Left of cube
-	v.pos.Set(0.5f * size, 0.5f * size, 0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(0.5f * size, -0.5f * size, 0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(0.5f * size, -0.5f * size, -0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(0.5f * size, 0.5f * size, -0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(0.5f * size, 0.5f * size, 0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(0.5f * size, -0.5f * size, -0.5f); v.color = color; v.normal.Set(0, 0, 1); vertex_buffer_data.push_back(v);
-	//Right of cube
-	v.pos.Set(-0.5f * size, 0.5f * size, 0.5f); v.color = color; v.normal.Set(1, 1, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(-0.5f * size, -0.5f * size, 0.5f); v.color = color; v.normal.Set(1, 1, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(-0.5f * size, -0.5f * size, -0.5f); v.color = color; v.normal.Set(1, 1, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(-0.5f * size, 0.5f * size, -0.5f); v.color = color; v.normal.Set(1, 1, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(-0.5f * size, 0.5f * size, 0.5f); v.color = color; v.normal.Set(1, 1, 1); vertex_buffer_data.push_back(v);
-	v.pos.Set(-0.5f * size, -0.5f * size, -0.5f); v.color = color; v.normal.Set(1, 1, 1); vertex_buffer_data.push_back(v);
-	for (int i = 0; i < 36; i++)
-		index_buffer_data.push_back(i);
+
+
+	v.pos.Set(0.5f * lengthX, 0.5f * lengthY, 0.5f * lengthZ); v.texCoord.Set(2, 0);  v.normal.Set(0, 0.5f * lengthY, 0); vertex_buffer_data.push_back(v);
+	v.pos.Set(-0.5f * lengthX, 0.5f * lengthY, 0.5f * lengthZ); v.texCoord.Set(0, 0); v.normal.Set(0, 0.5f * lengthY, 0); vertex_buffer_data.push_back(v);
+	v.pos.Set(0.5f * lengthX, 0.5f * lengthY, -0.5f * lengthZ); v.texCoord.Set(2, 2); v.normal.Set(0, 0.5f * lengthY, 0); vertex_buffer_data.push_back(v);
+	v.pos.Set(-0.5f * lengthX, 0.5f * lengthY, -0.5f * lengthZ); v.texCoord.Set(0, 2);   v.normal.Set(0, 0.5f * lengthY, 0); vertex_buffer_data.push_back(v);
+
+	index_buffer_data.push_back(0);
+	index_buffer_data.push_back(2);
+	index_buffer_data.push_back(3);
+
+	index_buffer_data.push_back(0);
+	index_buffer_data.push_back(3);
+	index_buffer_data.push_back(1);
+
+	v.pos.Set(0.5f * lengthX, 0.5f * lengthY, 0.5f * lengthZ); v.texCoord.Set(0, 2); v.normal.Set(0.5f * lengthX, 0, 0); vertex_buffer_data.push_back(v);
+	v.pos.Set(0.5f * lengthX, 0.5f * lengthY, -0.5f * lengthZ); v.texCoord.Set(2, 2); v.normal.Set(0.5f * lengthX, 0, 0); vertex_buffer_data.push_back(v);
+	v.pos.Set(0.5f * lengthX, -0.5f * lengthY, 0.5f * lengthZ); v.texCoord.Set(0, 0);  v.normal.Set(0.5f * lengthX, 0, 0); vertex_buffer_data.push_back(v);
+	v.pos.Set(0.5f * lengthX, -0.5f * lengthY, -0.5f * lengthZ); v.texCoord.Set(2, 0); v.normal.Set(0.5f * lengthX, 0, 0); vertex_buffer_data.push_back(v);
+
+	index_buffer_data.push_back(6);
+	index_buffer_data.push_back(5);
+	index_buffer_data.push_back(4);
+
+	index_buffer_data.push_back(7);
+	index_buffer_data.push_back(5);
+	index_buffer_data.push_back(6);
+
+	v.pos.Set(0.5f * lengthX, 0.5f * lengthY, 0.5f * lengthZ); v.texCoord.Set(2, 2); v.normal.Set(0, 0, 0.5f * lengthZ); vertex_buffer_data.push_back(v);
+	v.pos.Set(-0.5f * lengthX, 0.5f * lengthY, 0.5f * lengthZ); v.texCoord.Set(0, 2); v.normal.Set(0, 0, 0.5f * lengthZ); vertex_buffer_data.push_back(v);
+	v.pos.Set(-0.5f * lengthX, -0.5f * lengthY, 0.5f * lengthZ); v.texCoord.Set(0, 0); v.normal.Set(0, 0, 0.5f * lengthZ); vertex_buffer_data.push_back(v);
+	v.pos.Set(0.5f * lengthX, -0.5f * lengthY, 0.5f * lengthZ); v.texCoord.Set(2, 0); v.normal.Set(0, 0, 0.5f * lengthZ); vertex_buffer_data.push_back(v);
+
+	index_buffer_data.push_back(9);
+	index_buffer_data.push_back(10);
+	index_buffer_data.push_back(8);
+
+	index_buffer_data.push_back(8);
+	index_buffer_data.push_back(10);
+	index_buffer_data.push_back(11);
+
+	v.pos.Set(-0.5f * lengthX, 0.5f * lengthY, 0.5f * lengthZ); v.texCoord.Set(2, 2); v.normal.Set(-0.5f * lengthX, 0, 0); vertex_buffer_data.push_back(v);
+	v.pos.Set(-0.5f * lengthX, 0.5f * lengthY, -0.5f * lengthZ); v.texCoord.Set(0, 2); v.normal.Set(-0.5f * lengthX, 0, 0); vertex_buffer_data.push_back(v);
+	v.pos.Set(-0.5f * lengthX, -0.5f * lengthY, 0.5f * lengthZ); v.texCoord.Set(2, 0); v.normal.Set(-0.5f * lengthX, 0, 0); vertex_buffer_data.push_back(v);
+	v.pos.Set(-0.5f * lengthX, -0.5f * lengthY, -0.5f * lengthZ); v.texCoord.Set(0, 0); v.normal.Set(-0.5f * lengthX, 0, 0); vertex_buffer_data.push_back(v);
+
+	index_buffer_data.push_back(13);
+	index_buffer_data.push_back(14);
+	index_buffer_data.push_back(12);
+
+	index_buffer_data.push_back(15);
+	index_buffer_data.push_back(14);
+	index_buffer_data.push_back(13);
+
+	v.pos.Set(0.5f * lengthX, 0.5f * lengthY, -0.5f * lengthZ); v.texCoord.Set(0, 2); v.normal.Set(0, 0, -0.5f * lengthZ); vertex_buffer_data.push_back(v);
+	v.pos.Set(-0.5f * lengthX, 0.5f * lengthY, -0.5f * lengthZ); v.texCoord.Set(2, 2); v.normal.Set(0, 0, -0.5f * lengthZ); vertex_buffer_data.push_back(v);
+	v.pos.Set(-0.5f * lengthX, -0.5f * lengthY, -0.5f * lengthZ); v.texCoord.Set(2, 0); v.normal.Set(0, 0, -0.5f * lengthZ); vertex_buffer_data.push_back(v);
+	v.pos.Set(0.5f * lengthX, -0.5f * lengthY, -0.5f * lengthZ); v.texCoord.Set(0, 0); v.normal.Set(0, 0, -0.5f * lengthZ); vertex_buffer_data.push_back(v);
+
+	index_buffer_data.push_back(17);
+	index_buffer_data.push_back(16);
+	index_buffer_data.push_back(19);
+
+	index_buffer_data.push_back(19);
+	index_buffer_data.push_back(18);
+	index_buffer_data.push_back(17);
+
+
+	v.pos.Set(0.5f * lengthX, -0.5f * lengthY, 0.5f * lengthZ); v.texCoord.Set(0, 0); v.normal.Set(0, -0.5f * lengthY, 0); vertex_buffer_data.push_back(v);
+	v.pos.Set(-0.5f * lengthX, -0.5f * lengthY, 0.5f * lengthZ); v.texCoord.Set(2, 0); v.normal.Set(0, -0.5f * lengthY, 0); vertex_buffer_data.push_back(v);
+	v.pos.Set(0.5f * lengthX, -0.5f * lengthY, -0.5f * lengthZ); v.texCoord.Set(0, 2); v.normal.Set(0, -0.5f * lengthY, 0); vertex_buffer_data.push_back(v);
+	v.pos.Set(-0.5f * lengthX, -0.5f * lengthY, -0.5f * lengthZ); v.texCoord.Set(2, 2); v.normal.Set(0, -0.5f * lengthY, 0); vertex_buffer_data.push_back(v);
+
+	index_buffer_data.push_back(22);
+	index_buffer_data.push_back(20);
+	index_buffer_data.push_back(21);
+
+	index_buffer_data.push_back(22);
+	index_buffer_data.push_back(21);
+	index_buffer_data.push_back(23);
 
 	Mesh* mesh = new Mesh(meshName);
 
 	glBindBuffer(GL_ARRAY_BUFFER, mesh->vertexBuffer);
 	glBufferData(GL_ARRAY_BUFFER, vertex_buffer_data.size() * sizeof(Vertex), &vertex_buffer_data[0], GL_STATIC_DRAW);
-	//glBindBuffer(GL_ARRAY_BUFFER, mesh->colorBuffer);
-	//glBufferData(GL_ARRAY_BUFFER, sizeof(color_buffer_data), color_buffer_data, GL_STATIC_DRAW);
+
+
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh->indexBuffer);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, index_buffer_data.size() * sizeof(GLuint), &index_buffer_data[0], GL_STATIC_DRAW);
 	mesh->mode = Mesh::DRAW_TRIANGLES;
-	mesh->indexSize = 36;
+	mesh->indexSize = index_buffer_data.size();
 
 	return mesh;
+
 }
 
 Mesh* MeshBuilder::GenerateCircle(const std::string& meshName, Color color, unsigned numSlice, float radius)
@@ -714,4 +754,3 @@ Mesh* MeshBuilder::GenerateOBJMTL(const std::string& meshName, const std::string
 	mesh->mode = Mesh::DRAW_TRIANGLES;
 	return mesh;
 }
-
