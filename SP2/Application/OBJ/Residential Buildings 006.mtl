@@ -1,0 +1,26 @@
+# Blender MTL File: '01 Residential Buildings Set Array.blend'
+# Material Count: 2
+
+newmtl ground
+Ns 225.000000
+Ka 0.500000 0.500000 0.500000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd C:\Users\DH\Desktop\Residential Buildings Set\textures\Hotel_Hous_AO.png
+map_Bump -bm 0.172933 -s 10.000000 10.000000 1.000000 C:\\Users\\DH\\Desktop\\Residential Buildings Set\\textures\\Steel_N.jpg
+map_Ks C:\\Users\\DH\\Desktop\\Residential Buildings Set\\textures\\Steel_S.jpg
+
+newmtl hotel_glas
+Ns 323.999994
+Ka 0.100000 0.250000 0.320000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+refl -s 0.800000 0.800000 1.000000 C:\\Users\\DH\\Desktop\\Residential Buildings Set\\textures\\REF 1.jpg

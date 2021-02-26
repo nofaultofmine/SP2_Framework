@@ -1,0 +1,9 @@
+newmtl GTP_BMan_Jack_07_Stg_Lsn_Adl_Ccs_Gry_Mgr_BlendMaterial
+Ka 0.588000 0.588000 0.588000
+Kd 0.500000 0.500000 0.500000
+Ks 0.000000 0.000000 0.000000
+Ns 2.000000
+d 1.000000
+Tr 0.000000
+map_Kd GTP_BMan_Jack_07_Stg_Lsn_Adl_Ccs_Gry_dff.TGA 
+

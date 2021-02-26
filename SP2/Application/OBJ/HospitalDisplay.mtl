@@ -1,0 +1,11 @@
+newmtl Material
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ns 96.078461
+d 1.000000
+Tr 0.000000
+map_Kd scifi_display_DIFFUSE0000.tga 
+map_Bump scifi_display_NORMAL.TGA 
+map_Ks scifi_display_SPECULAR.TGA 
+
