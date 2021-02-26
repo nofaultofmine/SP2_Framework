@@ -10,11 +10,7 @@
 #include <string>
 
 
-<<<<<<< HEAD
-SceneTaxi::SceneTaxi()
-=======
 SceneYX::SceneYX()
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 {
 	skybox_translateX = skybox_translateY = skybox_translateZ = 0.0f;
 	spire_passive_rotate = 0.0f;
@@ -43,22 +39,14 @@ SceneYX::SceneYX()
 	value_store = speed_boost = lift_boost = side_hover = false;
 	dialogue_1 = dialogue_2 = dialogue_3 = dialogue_4 = dialogue_5 = false;
 	end_dialogue_1 = end_dialogue_2 = end_dialogue_3 = end_dialogue_4 = end_dialogue_5 = false;
-	passenger_deliver_1 = passenger_deliver_2 = passenger_deliver_3 = passenger_deliver_4 = passenger_deliver_5 = end_game = true;
+	passenger_deliver_1 = passenger_deliver_2 = passenger_deliver_3 = passenger_deliver_4 = passenger_deliver_5 = end_game = false;
 }
 
-<<<<<<< HEAD
-SceneTaxi::~SceneTaxi()
-{
-}
-
-void SceneTaxi::Init()
-=======
 SceneYX::~SceneYX()
 {
 }
 
 void SceneYX::Init()
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 {
 	// Init VBO here
 	// Set background color to dark blue
@@ -95,15 +83,6 @@ void SceneYX::Init()
 	meshList[GEO_FLOOR]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
 	meshList[GEO_FLOOR]->material.kShininess = 0.2f;
 	
-<<<<<<< HEAD
-	meshList[GEO_QUAD] = MeshBuilder::GenerateQuad("textBox", Color(1, 1, 1), 1.f);
-	meshList[GEO_QUAD]->textureID = LoadTGA("Image//textBox.tga");
-
-	meshList[GEO_LIGHTBALL] = MeshBuilder::GenerateSphere("sphere", Color(1,1,1), 18, 18, 1.0f);
-
-	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1500, 1500, 1500);
-
-=======
 	meshList[GEO_QUAD] = MeshBuilder::GenerateQuad("Purple Button", Color(1, 0, 1), 1.f);
 	//meshList[GEO_QUAD]->textureID = LoadTGA("Image//textBox.tga");
 	meshList[GEO_QUAD]->material.kAmbient.Set(0.5f, 0.5f, 0.5f);
@@ -219,10 +198,10 @@ void SceneYX::Init()
 	meshList[GEO_MALL_PAD] = MeshBuilder::GenerateCube("Placeholder Mall Pad", Color(0.75, 1, 0.75), 1.0f);
 
 	// Park
-	meshList[GEO_TREE1] = MeshBuilder::GenerateOBJMTL("Tree 1", "OBJ//tree_pineTallA_detailed.obj", "OBJ//tree_pineTallA_detailed.mtl");
-	meshList[GEO_TREE2] = MeshBuilder::GenerateOBJMTL("Tree 2", "OBJ//tree_pineTallB_detailed.obj", "OBJ//tree_pineTallB_detailed.mtl");
-	meshList[GEO_TREE3] = MeshBuilder::GenerateOBJMTL("Tree 3", "OBJ//tree_pineTallC_detailed.obj", "OBJ//tree_pineTallC_detailed.mtl");
-	meshList[GEO_TREE4] = MeshBuilder::GenerateOBJMTL("Tree 4", "OBJ//tree_pineTallD_detailed.obj", "OBJ//tree_pineTallD_detailed.mtl");
+	//meshList[GEO_TREE1] = MeshBuilder::GenerateOBJMTL("Tree 1", "OBJ//tree_pineTallA_detailed.obj", "OBJ//tree_pineTallA_detailed.mtl");
+	//meshList[GEO_TREE2] = MeshBuilder::GenerateOBJMTL("Tree 2", "OBJ//tree_pineTallB_detailed.obj", "OBJ//tree_pineTallB_detailed.mtl");
+	//meshList[GEO_TREE3] = MeshBuilder::GenerateOBJMTL("Tree 3", "OBJ//tree_pineTallC_detailed.obj", "OBJ//tree_pineTallC_detailed.mtl");
+	//meshList[GEO_TREE4] = MeshBuilder::GenerateOBJMTL("Tree 4", "OBJ//tree_pineTallD_detailed.obj", "OBJ//tree_pineTallD_detailed.mtl");
 
 	meshList[GEO_PARK_PAD] = MeshBuilder::GenerateCube("Park Landing platform", Color(0, 0.25f, 0), 1.0f);
 
@@ -259,31 +238,17 @@ void SceneYX::Init()
 	meshList[GEO_HOSPITAL_PAD]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
 	meshList[GEO_HOSPITAL_PAD]->material.kShininess = 1.f;
 
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 	// Skybox
 	meshList[GEO_FRONT] = MeshBuilder::GenerateQuad("front", Color(1, 1, 1), 1.f);
-	meshList[GEO_FRONT]->textureID = LoadTGA("Image//clouds1_posz.tga");
+	meshList[GEO_FRONT]->textureID = LoadTGA("Image//front.tga");
 
 	meshList[GEO_BACK] = MeshBuilder::GenerateQuad("back", Color(1, 1, 1), 1.f);
-<<<<<<< HEAD
-	meshList[GEO_BACK]->textureID = LoadTGA("Image//clouds1_negz.tga");
-=======
 	meshList[GEO_BACK]->textureID = LoadTGA("Image//back.tga");
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 
 	meshList[GEO_TOP] = MeshBuilder::GenerateQuad("top", Color(1, 1, 1), 1.f);
-	meshList[GEO_TOP]->textureID = LoadTGA("Image//clouds1_posy.tga");
+	meshList[GEO_TOP]->textureID = LoadTGA("Image//top.tga");
 
 	meshList[GEO_BOTTOM] = MeshBuilder::GenerateQuad("bottom", Color(1, 1, 1), 1.f);
-<<<<<<< HEAD
-	meshList[GEO_BOTTOM]->textureID = LoadTGA("Image//clouds1_negy.tga");
-
-	meshList[GEO_LEFT] = MeshBuilder::GenerateQuad("left", Color(1, 1, 1), 1.f);
-	meshList[GEO_LEFT]->textureID = LoadTGA("Image//clouds1_posx.tga");
-
-	meshList[GEO_RIGHT] = MeshBuilder::GenerateQuad("right", Color(1, 1, 1), 1.f);
-	meshList[GEO_RIGHT]->textureID = LoadTGA("Image//clouds1_negx.tga");
-=======
 	meshList[GEO_BOTTOM]->textureID = LoadTGA("Image//bottom.tga");
 
 	meshList[GEO_LEFT] = MeshBuilder::GenerateQuad("left", Color(1, 1, 1), 1.f);
@@ -291,7 +256,6 @@ void SceneYX::Init()
 
 	meshList[GEO_RIGHT] = MeshBuilder::GenerateQuad("right", Color(1, 1, 1), 1.f);
 	meshList[GEO_RIGHT]->textureID = LoadTGA("Image//right.tga");
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 
 	//Load vertex and fragment shaders
 
@@ -430,21 +394,11 @@ void SceneYX::Init()
 	glUniform1i(m_parameters[U_NUMLIGHTS], 3);
 }
 
-<<<<<<< HEAD
-void SceneTaxi::Reset()
-=======
 void SceneYX::Reset()
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 {
 
 }
 
-<<<<<<< HEAD
-void SceneTaxi::Update(double dt)
-{
-	camera.Update(dt);
-
-=======
 void SceneYX::Update(double dt)
 {
 	if (cam_control)
@@ -453,7 +407,6 @@ void SceneYX::Update(double dt)
 	}
 
 	// Culling debug
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 	if (Application::IsKeyPressed(0x31))
 	{
 		glEnable(GL_CULL_FACE);
@@ -471,15 +424,6 @@ void SceneYX::Update(double dt)
 		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); //wireframe mode
 	}
 
-<<<<<<< HEAD
-	if (Application::IsKeyPressed('B'))
-	{
-		light[0].power = 0;
-	}
-	if (Application::IsKeyPressed('V'))
-	{
-		light[0].power = 2;
-=======
 	// Light toggle
 	if (Application::IsKeyPressed('B'))
 	{
@@ -488,39 +432,10 @@ void SceneYX::Update(double dt)
 	if (Application::IsKeyPressed('V'))
 	{
 		light[0].power = 1;
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 	}
 
 	glUniform1f(m_parameters[U_LIGHT0_POWER], light[0].power);
 	glUniform1i(m_parameters[U_LIGHT0_TYPE], light[0].type);
-<<<<<<< HEAD
-	glUniform1f(m_parameters[U_LIGHT1_POWER], light[1].power);
-	glUniform1i(m_parameters[U_LIGHT1_TYPE], light[1].type);
-	glUniform1f(m_parameters[U_LIGHT2_POWER], light[2].power);
-	glUniform1i(m_parameters[U_LIGHT2_TYPE], light[2].type);
-
-
-	static bool bLButtonState = false;
-	if (!bLButtonState && Application::IsMousePressed(0))
-	{
-		bLButtonState = true;
-	}
-	else if (bLButtonState && !Application::IsMousePressed(0))
-	{
-		bLButtonState = false;
-		//std::cout << "LBUTTON UP" << std::endl;
-	}
-	static bool bRButtonState = false;
-	if (!bRButtonState && Application::IsMousePressed(1))
-	{
-		bRButtonState = true;
-		//std::cout << "RBUTTON DOWN" << std::endl;
-	}
-	else if (bRButtonState && !Application::IsMousePressed(1))
-	{
-		bRButtonState = false;
-		//std::cout << "RBUTTON UP" << std::endl;
-=======
 	/*glUniform1f(m_parameters[U_LIGHT1_POWER], light[1].power);
 	glUniform1i(m_parameters[U_LIGHT1_TYPE], light[1].type);
 	glUniform1f(m_parameters[U_LIGHT2_POWER], light[2].power);
@@ -1040,15 +955,10 @@ void SceneYX::Update(double dt)
 		camera.up.x = 0;
 		camera.up.y = 1;
 		camera.up.z = 0;
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 	}
 }
 
-<<<<<<< HEAD
-void SceneTaxi::Render()
-=======
 void SceneYX::Render()
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 {
 	// Render VBO here
 	//Clear color buffer every frame
@@ -1127,55 +1037,9 @@ void SceneYX::Render()
 	viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
 	modelStack.LoadIdentity();
 
-	RenderMesh(meshList[GEO_AXES], false);
+	//RenderMesh(meshList[GEO_AXES], false);
 	RenderSkybox();
 
-<<<<<<< HEAD
-}
-
-void SceneTaxi::Exit()
-{
-	// Cleanup VBO here
-	//glDeleteBuffers(NUM_GEOMETRY, &m_vertexBuffer[0]);
-	//glDeleteBuffers(NUM_GEOMETRY, &m_colorBuffer[0]);
-	glDeleteVertexArrays(1, &m_vertexArrayID);
-	glDeleteProgram(m_programID);
-}
-
-void SceneTaxi::RenderMesh(Mesh* mesh, bool enableLight)
-{
-	Mtx44 MVP, modelView, modelView_inverse_transpose;
-	//enableLight = false;
-	MVP = projectionStack.Top() * viewStack.Top() * modelStack.Top();
-	glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE, &MVP.a[0]);
-	modelView = viewStack.Top() * modelStack.Top();
-	glUniformMatrix4fv(m_parameters[U_MODELVIEW], 1, GL_FALSE, &modelView.a[0]);
-	if (enableLight)
-	{
-		glUniform1i(m_parameters[U_LIGHTENABLED], 1);
-		modelView_inverse_transpose = modelView.GetInverse().GetTranspose();
-		glUniformMatrix4fv(m_parameters[U_MODELVIEW_INVERSE_TRANSPOSE], 1, GL_FALSE, &modelView_inverse_transpose.a[0]);
-
-		//load material
-		glUniform3fv(m_parameters[U_MATERIAL_AMBIENT], 1, &mesh->material.kAmbient.r);
-		glUniform3fv(m_parameters[U_MATERIAL_DIFFUSE], 1, &mesh->material.kDiffuse.r);
-		glUniform3fv(m_parameters[U_MATERIAL_SPECULAR], 1, &mesh->material.kSpecular.r);
-		glUniform1f(m_parameters[U_MATERIAL_SHININESS], mesh->material.kShininess);
-	}
-	else
-	{
-		glUniform1i(m_parameters[U_LIGHTENABLED], 0);
-	}
-	if (mesh->textureID > 0)
-	{
-		glUniform1i(m_parameters[U_COLOR_TEXTURE_ENABLED], 1);
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, mesh->textureID);
-		glUniform1i(m_parameters[U_COLOR_TEXTURE], 0);
-	}
-	else
-	{
-=======
 	modelStack.PushMatrix();
 	modelStack.Translate(light[0].position.x, light[0].position.y,
 		light[0].position.z);
@@ -1911,7 +1775,6 @@ void SceneYX::RenderMesh(Mesh* mesh, bool enableLight)
 	}
 	else
 	{
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 		glUniform1i(m_parameters[U_COLOR_TEXTURE_ENABLED], 0);
 	}
 	mesh->Render(); //this line should only be called once
@@ -1921,15 +1784,6 @@ void SceneYX::RenderMesh(Mesh* mesh, bool enableLight)
 	}
 }
 
-<<<<<<< HEAD
-void SceneTaxi::RenderSkybox()
-{
-	modelStack.PushMatrix();
-	modelStack.Scale(1000, 1000, 1000);
-	modelStack.Translate(0, 0.f, 0.5);
-	modelStack.Rotate(0, 1, 0, 0);
-	//modelStack.Rotate(180, 0, 0, 1);
-=======
 void SceneYX::RenderSkybox()
 {
 	modelStack.PushMatrix();
@@ -1937,87 +1791,49 @@ void SceneYX::RenderSkybox()
 	modelStack.Translate(0, 0.f, 0.5);
 	modelStack.Rotate(180, 1, 0, 0);
 	modelStack.Rotate(180, 0, 0, 1);
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 	RenderMesh(meshList[GEO_FRONT], false);
 	modelStack.PopMatrix();
 
 	modelStack.PushMatrix();
-<<<<<<< HEAD
-	modelStack.Scale(1000, 1000, 1000);
-	modelStack.Translate(-0.5, 0.f, 0);
-	modelStack.Rotate(0, 1, 0, 0);
-	modelStack.Rotate(-90, 0, 1, 0);
-	//modelStack.Rotate(180, 0, 0, 1);
-=======
 	modelStack.Scale(600, 600, 600);
 	modelStack.Translate(-0.5, 0.f, 0);
 	modelStack.Rotate(90, 0, 1, 0);
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 	RenderMesh(meshList[GEO_RIGHT], false);
 	modelStack.PopMatrix();
 
 	modelStack.PushMatrix();
-<<<<<<< HEAD
-	modelStack.Scale(1000, 1000, 1000);
-	modelStack.Translate(0.5, 0.f, 0);
-	modelStack.Rotate(0, 1, 0, 0);
-	modelStack.Rotate(90, 0, 1, 0);
-	//modelStack.Rotate(180, 0, 0, 1);
-=======
 	modelStack.Scale(600, 600, 600);
 	modelStack.Translate(0.5, 0.f, 0);
 	modelStack.Rotate(-90, 0, 1, 0);
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 	RenderMesh(meshList[GEO_LEFT], false);
 	modelStack.PopMatrix();
 
 	modelStack.PushMatrix();
-<<<<<<< HEAD
-	modelStack.Scale(1000, 1000, 1000);
-	modelStack.Translate(0, 0.5f, 0);
-	modelStack.Rotate(-90, 1, 0, 0);
-	modelStack.Rotate(180, 0, 0, 1);
-=======
 	modelStack.Scale(600, 600, 600);
 	modelStack.Translate(0, 0.5f, 0);
 	modelStack.Rotate(90, 1, 0, 0);
 	modelStack.Rotate(-90, 0, 0, 1);
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 	RenderMesh(meshList[GEO_TOP], false);
 	modelStack.PopMatrix();
 
 	modelStack.PushMatrix();
 	modelStack.Scale(600, 600, 600);
 	modelStack.Translate(0, -0.5f, 0);
-<<<<<<< HEAD
-	modelStack.Rotate(90, 1, 0, 0);
-	modelStack.Rotate(180, 0, 0, 1);
-=======
 	modelStack.Rotate(-90, 1, 0, 0);
 	modelStack.Rotate(90, 0, 0, 1);
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 	RenderMesh(meshList[GEO_BOTTOM], false);
 	modelStack.PopMatrix();
 
 	modelStack.PushMatrix();
 	modelStack.Scale(600, 600, 600);
 	modelStack.Translate(0, 0.f, -0.5);
-<<<<<<< HEAD
-	modelStack.Rotate(0, 1, 0, 0);
-	modelStack.Rotate(180, 0, 1, 0);
-=======
 	modelStack.Rotate(180, 0, 0, 1);
 	modelStack.Rotate(180, 0, 0, 1);
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 	RenderMesh(meshList[GEO_BACK], false);
 	modelStack.PopMatrix();
 }
 
-<<<<<<< HEAD
-void SceneTaxi::RenderText(Mesh* mesh, std::string text, Color color)
-=======
 void SceneYX::RenderText(Mesh* mesh, std::string text, Color color)
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 {
 	if (!mesh || mesh->textureID <= 0) //Proper error check
 		return;
@@ -2042,11 +1858,7 @@ void SceneYX::RenderText(Mesh* mesh, std::string text, Color color)
 	glEnable(GL_DEPTH_TEST);
 }
 
-<<<<<<< HEAD
-void SceneTaxi::RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y)
-=======
 void SceneYX::RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y)
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 {
 	if (!mesh || mesh->textureID <= 0) //Proper error check
 		return;
@@ -2084,11 +1896,7 @@ void SceneYX::RenderTextOnScreen(Mesh* mesh, std::string text, Color color, floa
 	glEnable(GL_DEPTH_TEST);
 }
 
-<<<<<<< HEAD
-void SceneTaxi::RenderMeshOnScreen(Mesh* mesh, int x, int y, int sizex, int sizey)
-=======
 void SceneYX::RenderMeshOnScreen(Mesh* mesh, int x, int y, int sizex, int sizey)
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 {
 	glDisable(GL_DEPTH_TEST);
 	Mtx44 ortho;

@@ -11,11 +11,7 @@
 #include "MatrixStack.h"
 #include "Light.h"
 
-<<<<<<< HEAD
-class SceneTaxi : public Scene
-=======
 class SceneYX : public Scene
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 {
 	enum GEOMETRY_TYPE
 	{
@@ -23,10 +19,6 @@ class SceneYX : public Scene
 		GEO_FLOOR,
 		GEO_QUAD,
 		GEO_QUAD2,
-<<<<<<< HEAD
-		GEO_LIGHTBALL,
-
-=======
 		GEO_QUAD3,
 		GEO_LIGHTBALL,
 
@@ -37,7 +29,6 @@ class SceneYX : public Scene
 		GEO_NAV_SPIRE,
 		GEO_NAV_TAXI, // Deport / Taxi Company
 
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 		// Skybox
 		GEO_LEFT,
 		GEO_RIGHT,
@@ -47,8 +38,6 @@ class SceneYX : public Scene
 		GEO_BACK,
 		GEO_TORUS,
 
-<<<<<<< HEAD
-=======
 		// Hover Taxi
 		GEO_TAXI,
 		GEO_HOVER,
@@ -130,14 +119,13 @@ class SceneYX : public Scene
 		GEO_MALL_PAD,
 
 		// Park 
-		GEO_TREE1,
-		GEO_TREE2,
-		GEO_TREE3,
-		GEO_TREE4,
+		//GEO_TREE1,
+		//GEO_TREE2,
+		//GEO_TREE3,
+		//GEO_TREE4,
 
 		GEO_PARK_PAD,
 
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 		GEO_TEXT,
 		GEO_TEXT1,
 		GEO_TEXT2,
@@ -207,11 +195,7 @@ private:
 	Mtx44 projection;
 	Mtx44 MVP;
 
-<<<<<<< HEAD
-	Light light[3];
-=======
 	Light light[1];
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 
 	//float FPS;
 
@@ -282,13 +266,8 @@ private:
 	void RenderMeshOnScreen(Mesh* mesh, int x, int y, int sizex, int sizey);
 
 public:
-<<<<<<< HEAD
-	SceneTaxi();
-	~SceneTaxi();
-=======
 	SceneYX();
 	~SceneYX();
->>>>>>> 8bf8cf3dc74c666e905c12e204689f9cf4894bed
 
 	virtual void Init();
 	virtual void Reset();
