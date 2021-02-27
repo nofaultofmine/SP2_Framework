@@ -494,7 +494,7 @@ void SceneYX::Update(double dt)
 	if (!bLButtonState && Application::IsMousePressed(0) && !gamestart)
 	{
 		bLButtonState = true;
-		std::cout << "LBUTTON DOWN" << std::endl;
+		//std::cout << "LBUTTON DOWN" << std::endl;
 
 		//Converting Viewport space to UI space
 		double x, y;
@@ -505,7 +505,7 @@ void SceneYX::Update(double dt)
 		unsigned UI_HEIGHT = h / 10;
 		float posX = x / w * UI_WIDTH; //convert (0,800) to (0,80)
 		float posY = (1.f - y / h) * UI_HEIGHT; //convert (600,0) to (0,60)
-		std::cout << "posX:" << posX << " , posY:" << posY << std::endl;
+		//std::cout << "posX:" << posX << " , posY:" << posY << std::endl;
 		if (posX > 32.5 && posX < 46 && posY > 5 && posY < 8 && !cam_control && !gamestart)
 		{
 			std::cout << "Hit!" << std::endl;
@@ -523,13 +523,13 @@ void SceneYX::Update(double dt)
 		}
 		else
 		{
-			std::cout << "Miss!" << std::endl;
+			//std::cout << "Miss!" << std::endl;
 		}
 	}
 	else if (bLButtonState && !Application::IsMousePressed(0) && !gamestart)
 	{
 		bLButtonState = false;
-		std::cout << "LBUTTON UP" << std::endl;
+		//std::cout << "LBUTTON UP" << std::endl;
 	}
 	//camera.position.y = 10;
 
@@ -549,7 +549,7 @@ void SceneYX::Update(double dt)
 		if (!bLButtonState && Application::IsMousePressed(0) && pause && !upgrade)
 		{
 			bLButtonState = true;
-			std::cout << "LBUTTON DOWN" << std::endl;
+			//std::cout << "LBUTTON DOWN" << std::endl;
 
 			//Converting Viewport space to UI space
 			double x, y;
@@ -560,23 +560,23 @@ void SceneYX::Update(double dt)
 			unsigned UI_HEIGHT = h / 10;
 			float posX = x / w * UI_WIDTH; //convert (0,800) to (0,80)
 			float posY = (1.f - y / h) * UI_HEIGHT; //convert (600,0) to (0,60)
-			std::cout << "posX:" << posX << " , posY:" << posY << std::endl;
+			//std::cout << "posX:" << posX << " , posY:" << posY << std::endl;
 			if (posX > 0 && posX < 18.5 && posY > 4.5f && posY < 7.5f && !cam_control)
 			{
-				std::cout << "Hit!" << std::endl;
+				//std::cout << "Hit!" << std::endl;
 				//trigger user action or function
 				pause = false;
 				cam_control = true;
 			}
 			else
 			{
-				std::cout << "Miss!" << std::endl;
+				//std::cout << "Miss!" << std::endl;
 			}
 		}
 		else if (bLButtonState && !Application::IsMousePressed(0) && pause)
 		{
 			bLButtonState = false;
-			std::cout << "LBUTTON UP" << std::endl;
+			//std::cout << "LBUTTON UP" << std::endl;
 		}
 
 
@@ -624,7 +624,7 @@ void SceneYX::Update(double dt)
 		if (!bLButtonState && Application::IsMousePressed(0) && upgrade && !pause)
 		{
 			bLButtonState = true;
-			std::cout << "LBUTTON DOWN" << std::endl;
+			//std::cout << "LBUTTON DOWN" << std::endl;
 
 			//Converting Viewport space to UI space
 			double x, y;
@@ -635,11 +635,11 @@ void SceneYX::Update(double dt)
 			unsigned UI_HEIGHT = h / 10;
 			float posX = x / w * UI_WIDTH; //convert (0,800) to (0,80)
 			float posY = (1.f - y / h) * UI_HEIGHT; //convert (600,0) to (0,60)
-			std::cout << "posX:" << posX << " , posY:" << posY << std::endl;
+			//std::cout << "posX:" << posX << " , posY:" << posY << std::endl;
 			if (posX > 1.5 && posX < 4.5 && posY > 9.5 && posY < 12.5 && !cam_control && cash >= 10)
 			{
 				// Get Side Thrusters
-				std::cout << "Hit!" << std::endl;
+				//std::cout << "Hit!" << std::endl;
 				//trigger user action or function
 				side_hover = true;
 				cash -= 10;
@@ -648,7 +648,7 @@ void SceneYX::Update(double dt)
 			if (posX > 1.5 && posX < 4.5 && posY > 12.5 && posY < 15.5 && !cam_control && cash >= 10)
 			{
 				// Upgrade Hover
-				std::cout << "Hit!" << std::endl;
+				//std::cout << "Hit!" << std::endl;
 				//trigger user action or function
 				lift_boost = true;
 				cash -= 10;
@@ -657,7 +657,7 @@ void SceneYX::Update(double dt)
 			if (posX > 1.5 && posX < 4.5 && posY > 15.5 && posY < 18.5 && !cam_control && cash >= 20)
 			{
 				// Upgrade Speed
-				std::cout << "Hit!" << std::endl;
+				//std::cout << "Hit!" << std::endl;
 				//trigger user action or function
 				speed_boost = true;
 				cash -= 20;
@@ -667,7 +667,7 @@ void SceneYX::Update(double dt)
 			if (posX > 0 && posX < 18.5 && posY > 4.5f && posY < 7.5f && !cam_control)
 			{
 				// Exit Upgrade
-				std::cout << "Hit!" << std::endl;
+				//std::cout << "Hit!" << std::endl;
 				//trigger user action or function
 				upgrade = false;
 				cam_control = true;
@@ -686,13 +686,13 @@ void SceneYX::Update(double dt)
 			}
 			else
 			{
-				std::cout << "Miss!" << std::endl;
+				//std::cout << "Miss!" << std::endl;
 			}
 		}
 		else if (bLButtonState && !Application::IsMousePressed(0) && upgrade)
 		{
 			bLButtonState = false;
-			std::cout << "LBUTTON UP" << std::endl;
+			//std::cout << "LBUTTON UP" << std::endl;
 		}
 
 
@@ -709,7 +709,7 @@ void SceneYX::Update(double dt)
 		{
 			passengerID = 1;
 			destination_1 = true;
-			std::cout << passengerID << std::endl;
+			//std::cout << passengerID << std::endl;
 		}
 	}
 	else
@@ -730,7 +730,7 @@ void SceneYX::Update(double dt)
 			passenger_deliver_1 = true;
 
 			cash += 10;
-			std::cout << passengerID << std::endl;
+			//std::cout << passengerID << std::endl;
 		}
 	}
 	else
@@ -749,7 +749,7 @@ void SceneYX::Update(double dt)
 		{
 			passengerID = 2;
 			destination_2 = true;
-			std::cout << passengerID << std::endl;
+			//std::cout << passengerID << std::endl;
 		}
 	}
 	else
@@ -770,7 +770,7 @@ void SceneYX::Update(double dt)
 			passenger_deliver_2 = true;
 
 			cash += 10;
-			std::cout << passengerID << std::endl;
+			//std::cout << passengerID << std::endl;
 		}
 	}
 	else
@@ -789,7 +789,7 @@ void SceneYX::Update(double dt)
 		{
 			passengerID = 3;
 			destination_3 = true;
-			std::cout << passengerID << std::endl;
+			//std::cout << passengerID << std::endl;
 		}
 	}
 	else
@@ -810,7 +810,7 @@ void SceneYX::Update(double dt)
 			passenger_deliver_3 = true;
 
 			cash += 10;
-			std::cout << passengerID << std::endl;
+			//std::cout << passengerID << std::endl;
 		}
 	}
 	else
@@ -829,7 +829,7 @@ void SceneYX::Update(double dt)
 		{
 			passengerID = 4;
 			destination_4 = true;
-			std::cout << passengerID << std::endl;
+			//std::cout << passengerID << std::endl;
 		}
 	}
 	else
@@ -850,7 +850,7 @@ void SceneYX::Update(double dt)
 			passenger_deliver_4 = true;
 
 			cash += 10;
-			std::cout << passengerID << std::endl;
+			//std::cout << passengerID << std::endl;
 		}
 	}
 	else
@@ -869,7 +869,7 @@ void SceneYX::Update(double dt)
 		{
 			passengerID = 5;
 			destination_5 = true;
-			std::cout << passengerID << std::endl;
+			//std::cout << passengerID << std::endl;
 		}
 	}
 	else
@@ -890,7 +890,7 @@ void SceneYX::Update(double dt)
 			passenger_deliver_5 = true;
 
 			cash += 10;
-			std::cout << passengerID << std::endl;
+			//std::cout << passengerID << std::endl;
 		}
 	}
 	else
