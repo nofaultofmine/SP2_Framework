@@ -1725,9 +1725,9 @@ void SceneYX::Render()
 
 	if (passenger_deliver_1 && passenger_deliver_2 && passenger_deliver_3 && passenger_deliver_4 && passenger_deliver_5)
 	{
-		RenderTextOnScreen(meshList[GEO_TEXT], "All passengers delivered", Color(0, 1, 0), 2, 2.5, 14);
-		RenderTextOnScreen(meshList[GEO_TEXT], "You may head to either sides of the map", Color(0, 1, 0), 2, 2.5, 10);
-		RenderTextOnScreen(meshList[GEO_TEXT], "to visit other scenes", Color(0, 1, 0), 2, 2.5, 8);
+		RenderTextOnScreen(meshList[GEO_TEXT], "All passengers delivered", Color(0, 1, 0), 2, 2.5, 8);
+		//RenderTextOnScreen(meshList[GEO_TEXT], "You may head to either sides of the map", Color(0, 1, 0), 2, 2.5, 10);
+		//RenderTextOnScreen(meshList[GEO_TEXT], "to visit other scenes", Color(0, 1, 0), 2, 2.5, 8);
 		RenderTextOnScreen(meshList[GEO_TEXT], "Or press R to restart", Color(0, 1, 0), 2, 2.5, 4);
 	}
 }
